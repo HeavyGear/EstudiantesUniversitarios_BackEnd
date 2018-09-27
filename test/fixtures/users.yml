@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  idNumber: 1
+  email: MyString
+  beneficiary: false
+  role: 1
+  project: 1
+  university: 1
+  major: 1
+  image: 1
+
+two:
+  name: MyString
+  idNumber: 1
+  email: MyString
+  beneficiary: false
+  role: 1
+  project: 1
+  university: 1
+  major: 1
+  image: 1
