@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  state: 1
+  document: 1
+  project: 1
+
+two:
+  state: 1
+  document: 1
+  project: 1

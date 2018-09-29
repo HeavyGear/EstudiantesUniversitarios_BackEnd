@@ -3,11 +3,11 @@
 one:
   name: MyString
   description: MyText
-  startdate: 2018-09-27 00:22:08
-  enddate: 2018-09-27 00:22:08
+  startdate: 2018-09-29 16:52:44
+  enddate: 2018-09-29 16:52:44
   place: MyString
-  latitude: 
-  longitude: 
+  latitude: 9.99
+  longitude: 9.99
   type: 1
   user: 1
   parent: 1
@@ -15,11 +15,11 @@ one:
 two:
   name: MyString
   description: MyText
-  startdate: 2018-09-27 00:22:08
-  enddate: 2018-09-27 00:22:08
+  startdate: 2018-09-29 16:52:44
+  enddate: 2018-09-29 16:52:44
   place: MyString
-  latitude: 
-  longitude: 
+  latitude: 9.99
+  longitude: 9.99
   type: 1
   user: 1
   parent: 1

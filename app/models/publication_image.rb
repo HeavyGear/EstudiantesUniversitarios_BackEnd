@@ -1,0 +1,2 @@
+class PublicationImage < ApplicationRecord
+end
