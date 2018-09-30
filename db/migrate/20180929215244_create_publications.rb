@@ -8,7 +8,7 @@ class CreatePublications < ActiveRecord::Migration[5.0]
       t.string :place
       t.decimal :latitude
       t.decimal :longitude
-      t.integer :type
+      t.integer :typePublication
       t.integer :user
       t.integer :parent
 

@@ -20,10 +20,11 @@ ActiveRecord::Schema.define(version: 20180929224353) do
 
   create_table "documents", force: :cascade do |t|
     t.string   "link"
-    t.integer  "documetable_id"
+    t.integer  "documentable_id"
     t.string   "documentable_type"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.index ["documentable_type", nil], name: "index_documents_on_documentable_type_and_documetable_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20180929224353) do
     t.string   "imageable_type"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
   end
 
   create_table "majors", force: :cascade do |t|
@@ -86,11 +88,11 @@ ActiveRecord::Schema.define(version: 20180929224353) do
     t.string   "place"
     t.decimal  "latitude"
     t.decimal  "longitude"
-    t.integer  "type"
+    t.integer  "typePublication"
     t.integer  "user"
     t.integer  "parent"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -122,7 +124,7 @@ ActiveRecord::Schema.define(version: 20180929224353) do
 
   create_table "user_major_universities", force: :cascade do |t|
     t.integer  "user"
-    t.integer  "career"
+    t.integer  "major"
     t.integer  "university"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

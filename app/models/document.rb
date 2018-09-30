@@ -1,3 +1,3 @@
 class Document < ApplicationRecord
-  belongs_to :uploadeable, polymorphic: true
+  #belongs_to :documentable, polymorphic: true
 end
