@@ -2,7 +2,7 @@
 
 ## David Herrera
 ### Planificación Modelo E-R
-### Realización MOdelo E-R
+### Realización Modelo E-R
 ### Revisión material acerca de asociaciones polimórficas en Rails
 ### Crear API
 ### Crear GitFlow del repositorio
