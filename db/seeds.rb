@@ -50,12 +50,12 @@ end
 
 # Poblar la tabla UserImage
 5.times do
-  UserImage.create(user: rand(1..25), image: rand(1..5))
+  UserImage.create(idUser: rand(1..25), idImage: rand(1..5))
 end
 
 #Poblar la tabla PublicationImage
 7.times do
-  PublicationImage.create(publication: rand(1..10), image: rand(6..12))
+  PublicationImage.create(idPublication: rand(1..10), idImage: rand(6..12))
 end
 
 # Poblar la tabla Document
@@ -68,22 +68,21 @@ end
     documentable_id: rand(1..7), documentable_type: 'Publication')
 end
 
-# Poblar la tabla ProjectDocument
+#Poblar la tabla ProjectDocument
 5.times do
-  ProjectDocument.create(project: rand(1..20), document: rand(1..5))
+  ProjectDocument.create(idProject: rand(1..20), idDocument: rand(1..5))
 end
 
 # Poblar la tabla PublicationDocument
 7.times do
-  PublicationDocument.create(publication: rand(1..10), document: rand(6..12))
+  PublicationDocument.create(idPublication: rand(1..10), idDocument: rand(6..12))
 end
 
 # Poblar la tabla Project
 20.times do
   Project.create(name: Faker::LeagueOfLegends.champion,
     description: Faker::LeagueOfLegends.quote,
-    user: rand(1..25), supervisor: rand(1..25), state: rand(1..3)
-  )
+    idUser: rand(1..25), supervisor: rand(1..25), idState: rand(1..3))
 end
 
 # Poblar la tabla Publication
@@ -93,10 +92,10 @@ end
   startdate: Time.now,
   enddate: Time.now,
   place: Faker::LeagueOfLegends.location,
+  latitude: 4.35,
+  longitude: 97.28,
   typePublication: rand(1..3),
-  latitude: 4.25,
-  longitude: 80.97,
-  user: rand(1..25),
+  idUser: rand(1..25),
   parent: nil)
 end
 
@@ -106,15 +105,20 @@ end
   idNumber: rand(1..999),
   email: Faker::Internet.email,
   beneficiary: Faker::Boolean.boolean,
-  role: rand(1..4),
+  idRole: rand(1..4),
   project: rand(1..20),
-  image: rand(1..5),
   university: rand(1..20),
   major: rand(1..20))
 end
 
 # Poblar la tabla UserMajorUniversity
 20.times do
-  UserMajorUniversity.create(user: rand(1..25), university: rand(1..20),
-  major: rand(1..20))
+  UserMajorUniversity.create(idUser: rand(1..25), idUniversity: rand(1..20),
+  idMajor: rand(1..20))
+end
+
+# Poblar la tabla UserProjectDocument
+20.times do
+  UserProjectDocument.create(idUser: rand(1..25), idProjectDocument: rand(1..20),
+  description: Faker::Simpsons.quote, answer: Faker::Simpsons.location)
 end

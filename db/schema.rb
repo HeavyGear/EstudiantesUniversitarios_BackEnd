@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 20180929224353) do
   end
 
   create_table "project_documents", force: :cascade do |t|
-    t.integer  "state"
-    t.integer  "document"
-    t.integer  "project"
+    t.integer  "idState"
+    t.integer  "idDocument"
+    t.integer  "idProject"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -59,25 +59,25 @@ ActiveRecord::Schema.define(version: 20180929224353) do
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "user"
+    t.integer  "idUser"
     t.integer  "supervisor"
-    t.integer  "state"
+    t.integer  "idState"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "publication_documents", force: :cascade do |t|
-    t.integer  "publication"
-    t.integer  "document"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "idPublication"
+    t.integer  "idDocument"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "publication_images", force: :cascade do |t|
-    t.integer  "publication"
-    t.integer  "image"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "idPublication"
+    t.integer  "idImage"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "publications", force: :cascade do |t|
@@ -86,10 +86,10 @@ ActiveRecord::Schema.define(version: 20180929224353) do
     t.datetime "startdate"
     t.datetime "enddate"
     t.string   "place"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
+    t.float    "latitude"
+    t.float    "longitude"
     t.integer  "typePublication"
-    t.integer  "user"
+    t.integer  "idUser"
     t.integer  "parent"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -116,27 +116,27 @@ ActiveRecord::Schema.define(version: 20180929224353) do
   end
 
   create_table "user_images", force: :cascade do |t|
-    t.integer  "user"
-    t.integer  "image"
+    t.integer  "idUser"
+    t.integer  "idImage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "user_major_universities", force: :cascade do |t|
-    t.integer  "user"
-    t.integer  "major"
-    t.integer  "university"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "idUser"
+    t.integer  "idMajor"
+    t.integer  "idUniversity"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "user_project_documents", force: :cascade do |t|
-    t.integer  "user"
-    t.integer  "projectDocument"
-    t.string   "description"
-    t.string   "answer"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "idUser"
+    t.integer  "idProjectDocument"
+    t.text     "description"
+    t.text     "answer"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -144,11 +144,10 @@ ActiveRecord::Schema.define(version: 20180929224353) do
     t.integer  "idNumber"
     t.string   "email"
     t.boolean  "beneficiary"
-    t.integer  "role"
+    t.integer  "idRole"
     t.integer  "project"
     t.integer  "university"
     t.integer  "major"
-    t.integer  "image"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
