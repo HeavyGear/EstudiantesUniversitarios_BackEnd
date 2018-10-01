@@ -22,4 +22,4 @@
 # Posibles tareas Sprint 2
 ## * Terminar tareas pendientes
 ## * Corroborar el correcto funcionamiento de los modelos y sus relaciones
-## * Las tareas que sean asignadas por el profesor
+## * Las tareas que sean asignadas por el profesor 
