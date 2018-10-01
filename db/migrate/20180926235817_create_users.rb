@@ -5,11 +5,10 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.integer :idNumber
       t.string :email
       t.boolean :beneficiary
-      t.integer :role
+      t.integer :idRole
       t.integer :project
       t.integer :university
       t.integer :major
-      t.integer :image
 
       t.timestamps
     end

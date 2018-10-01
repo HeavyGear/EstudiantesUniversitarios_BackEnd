@@ -1,12 +1,12 @@
 class Publication < ApplicationRecord
-  belongs_to :user, foreign_key: 'user'
+  belongs_to :user, foreign_key: 'idUser'
 
   has_many :publication_images
 
-  belongs_to :type_publication, foreign_key: 'type'
+  belongs_to :type_publication, foreign_key: 'typePublication'
 
-  belongs_to :publication, :foreign_key => :parent, optional: true
-  has_many :publications, :foreign_key => :parent, optional: true
+  has_many :commentaries, class_name: "Publication", foreign_key: "parent"
+  belongs_to :publication, class_name: "Publication"
 
   has_many :publication_documents
 end

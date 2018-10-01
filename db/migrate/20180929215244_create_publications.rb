@@ -6,10 +6,10 @@ class CreatePublications < ActiveRecord::Migration[5.0]
       t.datetime :startdate
       t.datetime :enddate
       t.string :place
-      t.decimal :latitude
-      t.decimal :longitude
-      t.integer :type
-      t.integer :user
+      t.float :latitude
+      t.float :longitude
+      t.integer :typePublication
+      t.integer :idUser
       t.integer :parent
 
       t.timestamps

@@ -1,5 +1,5 @@
 class PublicationImage < ApplicationRecord
-  has_one :images, as: :imageable, foreign_key: 'image'
+  has_one :images, as: :imageable
 
-  belongs_to :publication, foreign_key: 'publication'
+  belongs_to :publication, foreign_key: 'idPublication'
 end

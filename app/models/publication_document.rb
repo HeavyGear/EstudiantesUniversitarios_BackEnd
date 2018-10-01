@@ -1,8 +1,8 @@
 class PublicationDocument < ApplicationRecord
-  belongs_to :publication, foreign_key: 'publication'
+  belongs_to :publication, foreign_key: 'idPublication'
 
-  has_one :document, as: :uploadeable, foreign_key: 'document'
+  has_one :document, as: :documentable
 
   has_many :user_project_documents
-  has_many :users, through :user_project_documents
+  has_many :users, through: :user_project_documents
 end

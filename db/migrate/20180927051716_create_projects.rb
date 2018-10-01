@@ -3,9 +3,9 @@ class CreateProjects < ActiveRecord::Migration[5.0]
     create_table :projects do |t|
       t.string :name
       t.text :description
-      t.integer :user
+      t.integer :idUser
       t.integer :supervisor
-      t.integer :state
+      t.integer :idState
 
       t.timestamps
     end
