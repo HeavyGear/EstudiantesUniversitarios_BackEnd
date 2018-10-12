@@ -6,8 +6,8 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :email
       t.boolean :beneficiary
       t.integer :idRole
-      t.integer :university
-      t.integer :major
+      t.integer :idUniversity
+      t.integer :idMajor
 
       t.timestamps
     end

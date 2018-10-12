@@ -93,6 +93,6 @@ end
   email: Faker::Internet.email,
   beneficiary: Faker::Boolean.boolean,
   idRole: rand(1..4),
-  university: rand(1..20),
-  major: rand(1..20))
+  idUniversity: rand(1..20),
+  idMajor: rand(1..20))
 end
