@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration[5.0]
       t.string :name
       t.text :description
       t.integer :idUser
-      t.integer :supervisor
+      t.integer :idSupervisor
       t.integer :idState
 
       t.timestamps

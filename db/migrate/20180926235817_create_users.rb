@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :email
       t.boolean :beneficiary
       t.integer :idRole
-      t.integer :project
       t.integer :university
       t.integer :major
 
