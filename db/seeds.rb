@@ -20,7 +20,7 @@ end
 
 # Poblar la tabla Major
 20.times do
-  Major.create(name: Faker::Educator.degree)
+  Major.create(name: Faker::ProgrammingLanguage.name)
 end
 
 # Poblar la tabla DocumentState
@@ -68,7 +68,7 @@ end
 #Poblar la tabla Project
 20.times do
   Project.create(name: Faker::LeagueOfLegends.champion,
-    description: IndustrySegments.sub_sector,
+    description: Faker::Job.title,
     idUser: rand(1..25), idSupervisor: rand(1..25), idState: rand(1..3))
 end
 
@@ -76,8 +76,8 @@ end
 10.times do
   Publication.create(name: Faker::Book.title,
   description: Faker::LeagueOfLegends.quote,
-  startdate: Time.now,
-  enddate: Time.now,
+  startDate: Time.now,
+  endDate: Time.now,
   place: Faker::LeagueOfLegends.location,
   latitude: 4.35,
   longitude: 97.28,
