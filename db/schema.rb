@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181012221850) do
+ActiveRecord::Schema.define(version: 20181014065000) do
 
   create_table "document_states", force: :cascade do |t|
     t.string   "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20181012221850) do
   end
 
   create_table "documents", force: :cascade do |t|
-    t.string   "name"
+    t.string   "content"
     t.string   "uploadeable_type"
     t.integer  "uploadeable_id"
     t.datetime "created_at",       null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20181012221850) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.string   "name"
+    t.string   "content"
     t.string   "imageable_type"
     t.integer  "imageable_id"
     t.datetime "created_at",     null: false
@@ -101,6 +101,18 @@ ActiveRecord::Schema.define(version: 20181012221850) do
     t.string   "department"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_project_documents", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "project_document_id"
+    t.datetime "revisionDate"
+    t.text     "comment"
+    t.text     "response"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["project_document_id"], name: "index_user_project_documents_on_project_document_id"
+    t.index ["user_id"], name: "index_user_project_documents_on_user_id"
   end
 
   create_table "user_universities", force: :cascade do |t|

@@ -39,28 +39,8 @@ TypePublication.create(name: 'Publicación informativa')
 TypePublication.create(name: 'Evento')
 TypePublication.create(name: 'Comentario')
 
-# Poblar la tabla Image
-#5.times do
-  #Image.create(link: Faker::File.file_name('foo/bar', 'baz', 'png'), #=> "foo/bar/baz.doc",
-    #imageable_id: rand(1..5), imageable_type: 'User')
-#end
-#10.times do
-  #Image.create(link: Faker::File.file_name('foo/bar', 'baz', 'jpg'), #=> "foo/bar/baz.doc",
-    #imageable_id: rand(1..7), imageable_type: 'Publication')
-#end
-
-# Poblar la tabla Document
-#5.times do
-  #Document.create(link: Faker::File.file_name('foo/bar', 'baz', 'pdf'), #=> "foo/bar/baz.doc",
-    #documentable_id: rand(1..5), documentable_type: 'Project')
-#end
-#20.times do
-  #Document.create(link: Faker::File.file_name('foo/bar', 'baz', 'jpg'), #=> "foo/bar/baz.doc",
-    #documentable_id: rand(1..7), documentable_type: 'Publication')
-#end
-
 #Poblar la tabla ProjectDocument
-5.times do
+15.times do
   ProjectDocument.create(idState: rand(1..3), idProject: rand(1..20), approved: Faker::Boolean.boolean, 
     year: rand(1..2018), period: rand(1..2))
 end
@@ -95,4 +75,54 @@ end
   idRole: rand(1..4),
   idUniversity: rand(1..20),
   idMajor: rand(1..20))
+end
+
+# Poblar la tabla Image
+40.times do
+  i = rand(1..2)
+  type = ""
+  idParent = 0
+
+  if i == 1
+    type = "User"
+    idParent = rand(1..25)
+  else
+    type = "Publication"
+    idParent = rand(1..10)
+  end
+
+  Image.create(content: Faker::File.file_name('path/to', 'images'), 
+  imageable_id: idParent,
+  imageable_type: type)
+end
+
+# Poblar la tabla Document
+40.times do
+  i = rand(1..2)
+  type = ""
+  idParent = 0
+
+  if i == 1
+    type = "ProjectDocument"
+    idParent = rand(1..15)
+  else
+    type = "Publication"
+    idParent = rand(1..10)
+  end
+
+  Document.create(content: Faker::File.file_name('path/to', 'documents'), 
+  uploadeable_id: idParent,
+  uploadeable_type: type)
+end
+
+# Poblar la tabla UserUniversity
+25.times do
+  UserUniversity.create(user_id: rand(1..25), university_id: rand(1..20), idMajor: rand(1..20))
+end
+
+# Poblar la tabla UserProjectDocument
+25.times do
+  UserProjectDocument.create(user_id: rand(1..25), project_document_id: rand(1..15), 
+  revisionDate: DateTime.now, comment: Faker::FamousLastWords.last_words,
+  response: Faker::LeagueOfLegends.quote)
 end
