@@ -41,7 +41,7 @@ TypePublication.create(name: 'Comentario')
 
 #Poblar la tabla ProjectDocument
 15.times do
-  ProjectDocument.create(idState: rand(1..3), idProject: rand(1..20), approved: Faker::Boolean.boolean, 
+  ProjectDocument.create(document_state_id: rand(1..3), project_id: rand(1..20), approved: Faker::Boolean.boolean, 
     year: rand(1..2018), period: rand(1..2))
 end
 
@@ -49,7 +49,7 @@ end
 20.times do
   Project.create(name: Faker::LeagueOfLegends.champion,
     description: Faker::Job.title,
-    idUser: rand(1..25), idSupervisor: rand(1..25), idState: rand(1..3))
+    user_id: rand(1..25), supervisor_id: rand(1..25), project_state_id: rand(1..3))
 end
 
 # Poblar la tabla Publication
@@ -61,9 +61,9 @@ end
   place: Faker::LeagueOfLegends.location,
   latitude: 4.35,
   longitude: 97.28,
-  idType: rand(1..3),
-  idUser: rand(1..25),
-  parent: nil)
+  type_publication_id: rand(1..3),
+  user_id: rand(1..25),
+  parent_id: rand(1..10))
 end
 
 # Poblar la tabla User
@@ -72,9 +72,7 @@ end
   idNumber: rand(1..999999),
   email: Faker::Internet.email,
   beneficiary: Faker::Boolean.boolean,
-  idRole: rand(1..4),
-  idUniversity: rand(1..20),
-  idMajor: rand(1..20))
+  role_id: rand(1..4))
 end
 
 # Poblar la tabla Image
@@ -117,7 +115,7 @@ end
 
 # Poblar la tabla UserUniversity
 25.times do
-  UserUniversity.create(user_id: rand(1..25), university_id: rand(1..20), idMajor: rand(1..20))
+  UserUniversity.create(user_id: rand(1..25), university_id: rand(1..20), major_id: rand(1..20))
 end
 
 # Poblar la tabla UserProjectDocument

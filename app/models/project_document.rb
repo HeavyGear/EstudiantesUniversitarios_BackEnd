@@ -3,4 +3,6 @@ class ProjectDocument < ApplicationRecord
 
     has_many :user_project_documents
     has_many :users, through: :user_project_documents
+
+    belongs_to :project
 end

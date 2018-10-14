@@ -8,9 +8,12 @@ class CreatePublications < ActiveRecord::Migration[5.0]
       t.string :place
       t.float :latitude
       t.float :longitude
-      t.integer :idType
-      t.integer :idUser
-      t.integer :parent
+
+      t.belongs_to :user, index: true
+      t.belongs_to :type_publication, index: true
+
+      t.references :parent, optional: true
+      t.references :children
 
       t.timestamps
     end

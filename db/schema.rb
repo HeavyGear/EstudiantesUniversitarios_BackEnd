@@ -43,13 +43,15 @@ ActiveRecord::Schema.define(version: 20181014065000) do
   end
 
   create_table "project_documents", force: :cascade do |t|
-    t.integer  "idState"
-    t.integer  "idProject"
+    t.integer  "document_state_id"
+    t.integer  "project_id"
     t.boolean  "approved"
     t.integer  "year"
     t.integer  "period"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["document_state_id"], name: "index_project_documents_on_document_state_id"
+    t.index ["project_id"], name: "index_project_documents_on_project_id"
   end
 
   create_table "project_states", force: :cascade do |t|
@@ -61,11 +63,14 @@ ActiveRecord::Schema.define(version: 20181014065000) do
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "idUser"
-    t.integer  "idSupervisor"
-    t.integer  "idState"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+    t.integer  "supervisor_id"
+    t.integer  "project_state_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["project_state_id"], name: "index_projects_on_project_state_id"
+    t.index ["supervisor_id"], name: "index_projects_on_supervisor_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "publications", force: :cascade do |t|
@@ -76,11 +81,16 @@ ActiveRecord::Schema.define(version: 20181014065000) do
     t.string   "place"
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "idType"
-    t.integer  "idUser"
-    t.integer  "parent"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "type_publication_id"
+    t.integer  "parent_id"
+    t.integer  "children_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["children_id"], name: "index_publications_on_children_id"
+    t.index ["parent_id"], name: "index_publications_on_parent_id"
+    t.index ["type_publication_id"], name: "index_publications_on_type_publication_id"
+    t.index ["user_id"], name: "index_publications_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -118,9 +128,10 @@ ActiveRecord::Schema.define(version: 20181014065000) do
   create_table "user_universities", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "university_id"
-    t.integer  "idMajor"
+    t.integer  "major_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["major_id"], name: "index_user_universities_on_major_id"
     t.index ["university_id"], name: "index_user_universities_on_university_id"
     t.index ["user_id"], name: "index_user_universities_on_user_id"
   end
@@ -130,11 +141,10 @@ ActiveRecord::Schema.define(version: 20181014065000) do
     t.integer  "idNumber"
     t.string   "email"
     t.boolean  "beneficiary"
-    t.integer  "idRole"
-    t.integer  "idUniversity"
-    t.integer  "idMajor"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "role_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
 end
