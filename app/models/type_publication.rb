@@ -1,3 +1,3 @@
 class TypePublication < ApplicationRecord
-  has_many :publications
+    has_many :publications
 end

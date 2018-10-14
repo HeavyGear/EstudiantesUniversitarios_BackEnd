@@ -1,8 +1,8 @@
 class Project < ApplicationRecord
-  belongs_to :user, foreign_key: 'supervisor'
-  belongs_to :user, foreign_key: 'idUser'
+    belongs_to :user, class_name: 'User'
+    belongs_to :supervisor, class_name: 'User'
 
-  belongs_to :project_state, foreign_key: 'idState'
+    has_many :project_documents
 
-  has_many :project_documents
+    belongs_to :project_state
 end
