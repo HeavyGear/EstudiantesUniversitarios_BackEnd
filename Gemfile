@@ -28,8 +28,16 @@ gem 'responders', '~> 2.4'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+<<<<<<< HEAD
 # Use Faker gem to fill the database
 gem 'faker', '~> 1.9', '>= 1.9.1'
+=======
+# Use Will-Paginate
+gem 'will_paginate', '~> 3.1.0'
+
+# Use Annotate
+gem 'annotate'
+>>>>>>> releases_david
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

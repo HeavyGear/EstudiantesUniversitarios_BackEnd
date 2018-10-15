@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: project_documents
+#
+#  id                :integer          not null, primary key
+#  document_state_id :integer
+#  project_id        :integer
+#  approved          :boolean
+#  year              :integer
+#  period            :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
 class ProjectDocument < ApplicationRecord
     has_many :documents, as: :uploadeable
 

@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  idNumber    :integer
+#  email       :string
+#  beneficiary :boolean
+#  role_id     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class User < ApplicationRecord
     has_many :images, as: :imageable
 
