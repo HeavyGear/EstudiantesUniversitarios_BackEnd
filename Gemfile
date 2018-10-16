@@ -26,7 +26,7 @@ gem 'responders', '~> 2.4'
 # gem 'capistrano-rails', group: :development
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors'
 
 # Use Will-Paginate
 gem 'will_paginate', '~> 3.1.0'
