@@ -26,7 +26,7 @@ gem 'responders', '~> 2.4'
 # gem 'capistrano-rails', group: :development
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-gem 'rack-cors'
+gem 'rack-cors' # Gema para el intercambio de recursos cruzados
 
 # Use Will-Paginate
 gem 'will_paginate', '~> 3.1.0'
@@ -35,7 +35,12 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'annotate'
 
 # Use serializers
-gem 'active_model_serializers'
+gem 'active_model_serializers' # Gema que permite dar formato JSON a los parámetros y datos que deseamos 
+
+# Autenticación basada en token
+gem 'bcrypt', '~> 3.1.7' # Gema que permite almacenar un hash seguro d elas contraseñas de usuarios
+gem 'knock' # Gema para la autenticación basada en token en Rails
+gem 'jwt' # Gema para usar JSON Web Token
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

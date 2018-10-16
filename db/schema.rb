@@ -141,9 +141,10 @@ ActiveRecord::Schema.define(version: 20181014065000) do
     t.integer  "idNumber"
     t.string   "email"
     t.boolean  "beneficiary"
+    t.string   "password_digest"
     t.integer  "role_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
