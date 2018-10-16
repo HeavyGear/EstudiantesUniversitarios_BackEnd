@@ -132,6 +132,7 @@ DEPENDENCIES
   pg
   puma (~> 3.0)
   rails (~> 5.0.7)
+  rake (= 12.3.1)
   responders (~> 2.4)
   spring
   spring-watcher-listen (~> 2.0.0)
