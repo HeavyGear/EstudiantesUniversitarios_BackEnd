@@ -2,10 +2,10 @@ class ProjectsController < ApplicationController
      def index
         user = User.find(params[:user_id])
         if user
-          projects = user.projects
+          project = user.project
       
           respond_to do |format|
-            format.json { render json: projects, status:200 }
+            format.json { render json: project, status:200 }
           end
         end
       end
