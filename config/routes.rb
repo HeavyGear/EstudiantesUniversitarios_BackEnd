@@ -64,7 +64,9 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'auth' => 'home#auth'
 
-  resources :roles
+  resources :roles do
+    resources :users
+  end
 
   resources :majors
 

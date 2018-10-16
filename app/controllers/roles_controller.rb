@@ -1,6 +1,6 @@
 class RolesController < ApplicationController
     def index
-        roles = Role.all.paginate(page: params[:page], per_page: 5)
+        roles = Role.get_roles().paginate(page: params[:page], per_page: 5)
     
         respond_to do |format|
           format.json { render json: roles, status:200 }
@@ -22,7 +22,7 @@ class RolesController < ApplicationController
     end
       
     def show
-        role = Role.find(params[:id])
+        role = Role.get_users(params[:id])
       
         respond_to do |format|
           format.json { render json: role, status:200 }
@@ -30,7 +30,7 @@ class RolesController < ApplicationController
     end
       
     def update
-        role = Role.find(params[:id])
+        role = Role.get_user(params[:id])
       
         if role.update(params_role)
           respond_to do |format|
@@ -42,7 +42,7 @@ class RolesController < ApplicationController
     end
 
     def destroy
-        role = Role.find(params[:id])
+        role = Role.get_user(params[:id])
         role.destroy
       
         respond_to do |format|
