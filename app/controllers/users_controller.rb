@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  # Usar Knock para asegurarse que el usuario está autenticado
+  before_action :authenticate:user, only: [:index, :show, :update, :destroy]
+
   def index
     users = User.all.paginate(page: params[:page], per_page: 5)
 

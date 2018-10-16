@@ -72,6 +72,7 @@ end
   idNumber: rand(1..999999),
   email: Faker::Internet.email,
   beneficiary: Faker::Boolean.boolean,
+  password: "123456",
   role_id: rand(1..4))
 end
 
