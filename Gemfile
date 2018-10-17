@@ -27,16 +27,13 @@ gem 'responders', '~> 2.4'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors' # Gema para el intercambio de recursos cruzados
 
-<<<<<<< HEAD
 # Use Faker gem to fill the database
 gem 'faker', '~> 1.9', '>= 1.9.1'
-=======
 # Use Will-Paginate
 gem 'will_paginate', '~> 3.1.0'
 
 # Use Annotate
 gem 'annotate'
->>>>>>> releases_david
 
 # Use serializers
 gem 'active_model_serializers' # Gema que permite dar formato JSON a los parámetros y datos que deseamos 
