@@ -25,5 +25,5 @@
 ## * Evaluar mejorar en consultas
 ## * Las tareas que sean asignadas por el profesor
 
-# Dirección de Heroku donfe se encuentra desplegado
+# Dirección de Heroku donde se encuentra desplegado
 ## * https://unipastas-back.herokuapp.com/
