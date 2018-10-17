@@ -28,6 +28,8 @@ gem 'responders', '~> 2.4'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors' # Gema para el intercambio de recursos cruzados
 
+# Use Faker gem to fill the database
+gem 'faker', '~> 1.9', '>= 1.9.1'
 # Use Will-Paginate
 gem 'will_paginate', '~> 3.1.0'
 

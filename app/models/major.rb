@@ -14,5 +14,4 @@ class Major < ApplicationRecord
     has_many :universities, through: :user_universities
 
     validates :name, presence: true
-
 end

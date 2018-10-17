@@ -21,7 +21,7 @@ class User < ApplicationRecord
     has_many :universities, through: :user_universities
     has_many :majors, through: :user_universities
 
-    has_many :user_project_documents, inverse_of: :user
+    has_many :user_project_documents
     has_many :project_documents, through: :user_project_documents
 
     belongs_to :role
