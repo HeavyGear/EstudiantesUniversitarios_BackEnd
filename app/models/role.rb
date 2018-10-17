@@ -9,14 +9,8 @@
 #
 
 class Role < ApplicationRecord
-<<<<<<< HEAD
-    has_many :users
-<<<<<<< HEAD
-=======
     has_many :users, inverse_of: :role
     validates :name, presence: true
->>>>>>> releases_camilo
-=======
 
     # Muestra todos los roles
     def self.get_roles
@@ -32,5 +26,4 @@ class Role < ApplicationRecord
     def self.get_user(curr_id)
         self.where(id: curr_id)
     end
->>>>>>> releases_david
 end

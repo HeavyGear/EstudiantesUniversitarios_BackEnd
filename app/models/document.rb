@@ -14,8 +14,5 @@ class Document < ApplicationRecord
   belongs_to :uploadeable, polymorphic: true
 
   belongs_to :document_state
-<<<<<<< HEAD
-=======
   validates :content, presence: true
->>>>>>> releases_camilo
 end

@@ -12,8 +12,5 @@
 
 class Image < ApplicationRecord
   belongs_to :imageable, polymorphic: true
-<<<<<<< HEAD
-=======
   validates :content, presence: true
->>>>>>> releases_camilo
 end

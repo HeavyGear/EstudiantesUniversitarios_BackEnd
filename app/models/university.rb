@@ -11,15 +11,9 @@
 #
 
 class University < ApplicationRecord
-<<<<<<< HEAD
-    has_many :user_universities
-    has_many :users, through: :user_universities
-    has_many :majors, through: :user_universities
-=======
     has_many :user_universities, inverse_of: :university
     has_many :users, through: :user_universities
     has_many :majors, through: :user_universities
 
     validates :name, :city, :department, presence: true
->>>>>>> releases_camilo
 end

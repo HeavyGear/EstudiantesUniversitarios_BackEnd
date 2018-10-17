@@ -15,8 +15,5 @@
 class UserProjectDocument < ApplicationRecord
     belongs_to :user
     belongs_to :project_document
-<<<<<<< HEAD
-=======
     validates :user, :project_document, presence: true
->>>>>>> releases_camilo
 end
