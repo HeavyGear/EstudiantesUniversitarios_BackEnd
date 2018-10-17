@@ -29,4 +29,9 @@ class Publication < ApplicationRecord
 
     belongs_to :parent, class_name: 'Publication'
     has_many :children, class_name: 'Publication', foreign_key: 'parent_id'
+<<<<<<< HEAD
+=======
+
+    validates :name, :description, :place, :type_publication, :user, presence: true
+>>>>>>> releases_camilo
 end

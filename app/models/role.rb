@@ -9,5 +9,10 @@
 #
 
 class Role < ApplicationRecord
+<<<<<<< HEAD
     has_many :users
+=======
+    has_many :users, inverse_of: :role
+    validates :name, presence: true
+>>>>>>> releases_camilo
 end

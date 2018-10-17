@@ -15,8 +15,17 @@
 class ProjectDocument < ApplicationRecord
     has_many :documents, as: :uploadeable
 
+<<<<<<< HEAD
     has_many :user_project_documents
     has_many :users, through: :user_project_documents
 
     belongs_to :project
+=======
+    has_many :user_project_documents, inverse_of: :project_document
+    has_many :users, through: :user_project_documents
+
+    belongs_to :project
+
+    validates :document_state, :project, presence: true
+>>>>>>> releases_camilo
 end

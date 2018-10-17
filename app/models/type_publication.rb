@@ -9,5 +9,10 @@
 #
 
 class TypePublication < ApplicationRecord
+<<<<<<< HEAD
     has_many :publications
+=======
+    has_many :publications,  inverse_of: :type_publication
+    validates :name, presence: true
+>>>>>>> releases_camilo
 end

@@ -9,5 +9,10 @@
 #
 
 class ProjectState < ApplicationRecord
+<<<<<<< HEAD
     has_many :projects
+=======
+    has_many :projects, inverse_of: :project_state
+    validates :name, presence: true
+>>>>>>> releases_camilo
 end

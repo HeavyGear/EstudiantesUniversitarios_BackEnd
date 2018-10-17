@@ -9,7 +9,16 @@
 #
 
 class Major < ApplicationRecord
+<<<<<<< HEAD
     has_many :user_universities
     has_many :users, through: :user_universities
     has_many :universities, through: :user_universities
+=======
+    has_many :user_universities, inverse_of: :major
+    has_many :users, through: :user_universities
+    has_many :universities, through: :user_universities
+
+    validates :name, presence: true
+
+>>>>>>> releases_camilo
 end

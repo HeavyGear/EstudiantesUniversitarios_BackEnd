@@ -9,5 +9,10 @@
 #
 
 class DocumentState < ApplicationRecord
+<<<<<<< HEAD
     has_many :project_documents
+=======
+    has_many :project_documents, inverse_of: :document_state
+    validates :name, presence: true
+>>>>>>> releases_camilo
 end

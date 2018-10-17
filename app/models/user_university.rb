@@ -14,4 +14,9 @@ class UserUniversity < ApplicationRecord
     belongs_to :user
     belongs_to :university
     belongs_to :major
+<<<<<<< HEAD
+=======
+
+    validates :user, :university, :major, presence: true
+>>>>>>> releases_camilo
 end

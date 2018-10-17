@@ -16,7 +16,15 @@ class Project < ApplicationRecord
     belongs_to :user, class_name: 'User'
     belongs_to :supervisor, class_name: 'User'
 
+<<<<<<< HEAD
     has_many :project_documents
 
     belongs_to :project_state
+=======
+    has_many :project_documents, inverse_of: :project
+
+    belongs_to :project_state
+
+    validates :project_state, :name, :description, presence: true
+>>>>>>> releases_camilo
 end
