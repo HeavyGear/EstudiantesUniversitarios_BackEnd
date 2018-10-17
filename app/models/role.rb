@@ -25,4 +25,6 @@ class Role < ApplicationRecord
     def self.get_user(curr_id)
         self.where(id: curr_id)
     end
+    
+    validates :name, presence: true
 end

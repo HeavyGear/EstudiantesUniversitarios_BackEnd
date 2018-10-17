@@ -10,4 +10,5 @@
 
 class DocumentState < ApplicationRecord
     has_many :project_documents
+    validates :name, presence: true
 end
