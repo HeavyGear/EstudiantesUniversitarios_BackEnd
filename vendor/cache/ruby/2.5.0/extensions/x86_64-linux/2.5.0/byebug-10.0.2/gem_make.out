@@ -1,0 +1,19 @@
+current directory: /home/david/Documentos/SoftwareII/Proyecto/UniPastasAldana/vendor/cache/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+/usr/bin/ruby2.5 -r ./siteconf20181016-15415-1jt49vo.rb extconf.rb
+creating Makefile
+
+current directory: /home/david/Documentos/SoftwareII/Proyecto/UniPastasAldana/vendor/cache/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /home/david/Documentos/SoftwareII/Proyecto/UniPastasAldana/vendor/cache/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+current directory: /home/david/Documentos/SoftwareII/Proyecto/UniPastasAldana/vendor/cache/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20181016-15415-5711l6/byebug
