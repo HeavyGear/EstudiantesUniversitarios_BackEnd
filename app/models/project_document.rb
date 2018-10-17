@@ -19,4 +19,6 @@ class ProjectDocument < ApplicationRecord
     has_many :users, through: :user_project_documents
 
     belongs_to :project
+
+    validates :document_state, :project, presence: true
 end

@@ -15,4 +15,5 @@
 class UserProjectDocument < ApplicationRecord
     belongs_to :user
     belongs_to :project_document
+    validates :user, :project_document, presence: true
 end

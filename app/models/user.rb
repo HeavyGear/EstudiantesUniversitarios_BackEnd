@@ -30,4 +30,11 @@ class User < ApplicationRecord
 
     has_one :project, class_name: 'Project', foreign_key: 'user_id'
     has_many :supervised_projects, class_name: 'Project', foreign_key: 'supervisor_id'
+
+    validates :name, :idNumber, presence: true
+    validates :email, presence: true , email: true
+    validates :idNumber, presence: true, numericality: true
+    validates :role, presence: true
 end
+
+

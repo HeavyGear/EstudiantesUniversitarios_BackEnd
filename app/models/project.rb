@@ -19,4 +19,6 @@ class Project < ApplicationRecord
     has_many :project_documents
 
     belongs_to :project_state
+
+    validates :project_state, :name, :description, presence: true
 end
