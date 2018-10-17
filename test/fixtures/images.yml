@@ -1,11 +1,21 @@
+# == Schema Information
+#
+# Table name: images
+#
+#  id             :integer          not null, primary key
+#  content        :string
+#  imageable_type :string
+#  imageable_id   :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  link: MyString
-  imageable_id: 1
-  imageable_type: MyString
+  name: MyString
+  imageable: one
 
 two:
-  link: MyString
-  imageable_id: 1
-  imageable_type: MyString
+  name: MyString
+  imageable: two

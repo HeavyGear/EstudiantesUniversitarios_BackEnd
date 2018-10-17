@@ -1,11 +1,21 @@
+# == Schema Information
+#
+# Table name: documents
+#
+#  id               :integer          not null, primary key
+#  content          :string
+#  uploadeable_type :string
+#  uploadeable_id   :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  link: MyString
-  documetable_id: 1
-  documentable_type: MyString
+  name: MyString
+  uploadeable: one
 
 two:
-  link: MyString
-  documetable_id: 1
-  documentable_type: MyString
+  name: MyString
+  uploadeable: two

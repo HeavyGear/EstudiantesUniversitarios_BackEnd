@@ -1,12 +1,37 @@
+# == Schema Information
+#
+# Table name: publications
+#
+#  id                  :integer          not null, primary key
+#  name                :string
+#  description         :text
+#  startDate           :datetime
+#  endDate             :datetime
+#  place               :string
+#  latitude            :float
+#  longitude           :float
+#  user_id             :integer
+#  type_publication_id :integer
+#  parent_id           :integer
+#  children_id         :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
 class Publication < ApplicationRecord
-  belongs_to :user, foreign_key: 'idUser'
+    has_many :images, as: :imageable
 
-  has_many :publication_images
+    has_many :documents, as: :uploadeable
 
-  belongs_to :type_publication, foreign_key: 'typePublication'
+    belongs_to :user
 
-  has_many :commentaries, class_name: "Publication", foreign_key: "parent"
-  belongs_to :publication, class_name: "Publication"
+    belongs_to :type_publication
 
-  has_many :publication_documents
+    belongs_to :parent, class_name: 'Publication'
+    has_many :children, class_name: 'Publication', foreign_key: 'parent_id'
+<<<<<<< HEAD
+=======
+
+    validates :name, :description, :place, :type_publication, :user, presence: true
+>>>>>>> releases_camilo
 end

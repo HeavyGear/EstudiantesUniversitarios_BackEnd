@@ -1,5 +1,22 @@
-class UserProjectDocument < ApplicationRecord
-  belongs_to :user, foreign_key: 'idUser'
+# == Schema Information
+#
+# Table name: user_project_documents
+#
+#  id                  :integer          not null, primary key
+#  user_id             :integer
+#  project_document_id :integer
+#  revisionDate        :datetime
+#  comment             :text
+#  response            :text
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
 
-  belongs_to :project_document, foreign_key: 'idProjectDocument'
+class UserProjectDocument < ApplicationRecord
+    belongs_to :user
+    belongs_to :project_document
+<<<<<<< HEAD
+=======
+    validates :user, :project_document, presence: true
+>>>>>>> releases_camilo
 end

@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: project_states
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class ProjectState < ApplicationRecord
-  has_many :projects
+<<<<<<< HEAD
+    has_many :projects
+=======
+    has_many :projects, inverse_of: :project_state
+    validates :name, presence: true
+>>>>>>> releases_camilo
 end

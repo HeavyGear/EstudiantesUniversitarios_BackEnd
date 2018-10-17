@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180929224353) do
+ActiveRecord::Schema.define(version: 20181014065000) do
 
   create_table "document_states", force: :cascade do |t|
     t.string   "name"
@@ -19,18 +19,18 @@ ActiveRecord::Schema.define(version: 20180929224353) do
   end
 
   create_table "documents", force: :cascade do |t|
-    t.string   "link"
-    t.integer  "documentable_id"
-    t.string   "documentable_type"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["documentable_type", nil], name: "index_documents_on_documentable_type_and_documetable_id"
+    t.string   "content"
+    t.string   "uploadeable_type"
+    t.integer  "uploadeable_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["uploadeable_type", "uploadeable_id"], name: "index_documents_on_uploadeable_type_and_uploadeable_id"
   end
 
   create_table "images", force: :cascade do |t|
-    t.string   "link"
-    t.integer  "imageable_id"
+    t.string   "content"
     t.string   "imageable_type"
+    t.integer  "imageable_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
@@ -43,11 +43,15 @@ ActiveRecord::Schema.define(version: 20180929224353) do
   end
 
   create_table "project_documents", force: :cascade do |t|
-    t.integer  "idState"
-    t.integer  "idDocument"
-    t.integer  "idProject"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "document_state_id"
+    t.integer  "project_id"
+    t.boolean  "approved"
+    t.integer  "year"
+    t.integer  "period"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["document_state_id"], name: "index_project_documents_on_document_state_id"
+    t.index ["project_id"], name: "index_project_documents_on_project_id"
   end
 
   create_table "project_states", force: :cascade do |t|
@@ -59,40 +63,34 @@ ActiveRecord::Schema.define(version: 20180929224353) do
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "idUser"
-    t.integer  "supervisor"
-    t.integer  "idState"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "publication_documents", force: :cascade do |t|
-    t.integer  "idPublication"
-    t.integer  "idDocument"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  create_table "publication_images", force: :cascade do |t|
-    t.integer  "idPublication"
-    t.integer  "idImage"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "user_id"
+    t.integer  "supervisor_id"
+    t.integer  "project_state_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["project_state_id"], name: "index_projects_on_project_state_id"
+    t.index ["supervisor_id"], name: "index_projects_on_supervisor_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "publications", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "startdate"
-    t.datetime "enddate"
+    t.datetime "startDate"
+    t.datetime "endDate"
     t.string   "place"
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "typePublication"
-    t.integer  "idUser"
-    t.integer  "parent"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "user_id"
+    t.integer  "type_publication_id"
+    t.integer  "parent_id"
+    t.integer  "children_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["children_id"], name: "index_publications_on_children_id"
+    t.index ["parent_id"], name: "index_publications_on_parent_id"
+    t.index ["type_publication_id"], name: "index_publications_on_type_publication_id"
+    t.index ["user_id"], name: "index_publications_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -115,28 +113,27 @@ ActiveRecord::Schema.define(version: 20180929224353) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_images", force: :cascade do |t|
-    t.integer  "idUser"
-    t.integer  "idImage"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_major_universities", force: :cascade do |t|
-    t.integer  "idUser"
-    t.integer  "idMajor"
-    t.integer  "idUniversity"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "user_project_documents", force: :cascade do |t|
-    t.integer  "idUser"
-    t.integer  "idProjectDocument"
-    t.text     "description"
-    t.text     "answer"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "user_id"
+    t.integer  "project_document_id"
+    t.datetime "revisionDate"
+    t.text     "comment"
+    t.text     "response"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["project_document_id"], name: "index_user_project_documents_on_project_document_id"
+    t.index ["user_id"], name: "index_user_project_documents_on_user_id"
+  end
+
+  create_table "user_universities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "university_id"
+    t.integer  "major_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["major_id"], name: "index_user_universities_on_major_id"
+    t.index ["university_id"], name: "index_user_universities_on_university_id"
+    t.index ["user_id"], name: "index_user_universities_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -144,12 +141,11 @@ ActiveRecord::Schema.define(version: 20180929224353) do
     t.integer  "idNumber"
     t.string   "email"
     t.boolean  "beneficiary"
-    t.integer  "idRole"
-    t.integer  "project"
-    t.integer  "university"
-    t.integer  "major"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "password_digest"
+    t.integer  "role_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
 end
