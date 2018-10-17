@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #!/usr/bin/env ruby2.5
 # frozen_string_literal: true
 
@@ -28,9 +27,7 @@ require "rubygems"
 require "bundler/setup"
 
 load Gem.bin_path("railties", "rails")
-=======
 #!/usr/bin/env ruby
 APP_PATH = File.expand_path('../config/application', __dir__)
 require_relative '../config/boot'
 require 'rails/commands'
->>>>>>> develop
