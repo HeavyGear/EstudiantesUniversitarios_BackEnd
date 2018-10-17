@@ -43,7 +43,7 @@ class RolesController < ApplicationController
 
     def destroy
         role = Role.get_user(params[:id])
-        role.destroy
+        role.destroy(params[:id])
       
         respond_to do |format|
           format.json { render json: role, status:200 }

@@ -23,6 +23,6 @@ class Role < ApplicationRecord
 
     # Muestra el usuario solicitado
     def self.get_user(curr_id)
-        self.select('roles.id, roles.name').where(id: curr_id)
+        self.where(id: curr_id)
     end
 end
