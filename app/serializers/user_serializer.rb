@@ -14,7 +14,5 @@
 
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :name, :idNumber, :email, :beneficiary, :role_id
-  has_one :project
-  config.embed :ids, include: true
 
 end
