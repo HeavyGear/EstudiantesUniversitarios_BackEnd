@@ -49,19 +49,6 @@ gem 'faker', '~> 1.9', '>= 1.9.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-<<<<<<< HEAD
-=======
-
-  # Use Faker to poblate DB
-  gem 'faker', '~> 1.9', '>= 1.9.1'
-
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
->>>>>>> 290fa5aab4f653ad8f6d6021db8efd5e3247d277
 end
 
 group :development do
