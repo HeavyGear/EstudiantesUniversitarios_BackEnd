@@ -24,3 +24,6 @@
 ## * Terminar tareas pendientes
 ## * Evaluar mejorar en consultas
 ## * Las tareas que sean asignadas por el profesor
+
+# Dirección de Heroku donde se encuentra desplegado
+## * https://unipastas-back.herokuapp.com/
