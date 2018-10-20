@@ -1,6 +1,15 @@
 # == Route Map
 #
 #                         Prefix Verb   URI Pattern                                                          Controller#Action
+#                     user_token POST   /user_token(.:format)                                                user_token#create
+#                           root GET    /                                                                    home#index
+#                           auth GET    /auth(.:format)                                                      home#auth
+#                     role_users GET    /roles/:role_id/users(.:format)                                      users#index
+#                                POST   /roles/:role_id/users(.:format)                                      users#create
+#                      role_user GET    /roles/:role_id/users/:id(.:format)                                  users#show
+#                                PATCH  /roles/:role_id/users/:id(.:format)                                  users#update
+#                                PUT    /roles/:role_id/users/:id(.:format)                                  users#update
+#                                DELETE /roles/:role_id/users/:id(.:format)                                  users#destroy
 #                          roles GET    /roles(.:format)                                                     roles#index
 #                                POST   /roles(.:format)                                                     roles#create
 #                           role GET    /roles/:id(.:format)                                                 roles#show

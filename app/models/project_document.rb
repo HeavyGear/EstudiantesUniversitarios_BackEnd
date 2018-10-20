@@ -14,11 +14,13 @@
 
 class ProjectDocument < ApplicationRecord
     has_many :documents, as: :uploadeable
-
+    
     has_many :user_project_documents
     has_many :users, through: :user_project_documents
 
     belongs_to :project
 
-    validates :document_state, :project, presence: true
+    belongs_to :project_document
+
+    validates :document_state_id, :project, presence: true
 end

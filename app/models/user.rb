@@ -2,14 +2,15 @@
 #
 # Table name: users
 #
-#  id          :integer          not null, primary key
-#  name        :string
-#  idNumber    :integer
-#  email       :string
-#  beneficiary :boolean
-#  role_id     :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id              :integer          not null, primary key
+#  name            :string
+#  idNumber        :integer
+#  email           :string
+#  beneficiary     :boolean
+#  password_digest :string
+#  role_id         :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 
 class User < ApplicationRecord
@@ -33,6 +34,9 @@ class User < ApplicationRecord
 
     validates :name, :idNumber, presence: true
     validates :email, presence: true , email: true
+
+    validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+    
     validates :idNumber, presence: true, numericality: true
     validates :role, presence: true
 end
