@@ -73,23 +73,73 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'auth' => 'home#auth'
 
+  # Roles
   resources :roles do
     resources :users
   end
 
-  resources :majors
+  # Majors
+  resources :majors do
+    resources :users
 
-  resources :universities
+    resources :universities
+  end
 
-  resources :type_publications
+  # Universities
+  resources :universities do
+    resources :users
 
-  resources :project_states
+    resources :majors
+  end
 
-  resources :document_states
-
+  # Users
   resources :users do
-    resources :projects do
-      resources :project_documents
+    resources :projects
+
+    resources :images
+
+    resources :universities
+
+    resources :majors
+
+    resources :project_documents do
+      resources :user_project_documents
     end
+  end
+
+  # ProjectDocuments
+  resources :project_documents do
+    resources :documents
+
+    resources :users do
+      resources :user_project_documents
+    end
+  end
+
+   # Projects
+  resources :projects do
+    resources :project_documents
+  end
+
+  # ProjectStates
+  resources :project_states do
+    resources :projects
+  end
+
+   # DocumentStates
+   resources :document_states do
+    resources :project_documents
+   end
+
+  # TypePublications
+  resources :type_publications do
+    resources :publications
+  end
+
+  # Publications
+  resources :publications do
+    resources :images
+
+    resources :documents
   end
 end

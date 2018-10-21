@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 
     # Método público que muestra una respuesta en la ruta principal
     def index
-        render json: { service: 'auth-api', status: 200 }
+        render json: { service: 'UniPastas Aldana BackEnd', status: 200 }
     end
 
     # Indica el nombre del usuario con el que actualmente se ha iniciado sesión
