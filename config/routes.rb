@@ -104,6 +104,8 @@ Rails.application.routes.draw do
 
     resources :majors
 
+    resources :publications
+
     resources :project_documents do
       resources :user_project_documents
     end
