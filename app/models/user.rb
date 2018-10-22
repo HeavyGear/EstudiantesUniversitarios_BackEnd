@@ -33,7 +33,7 @@ class User < ApplicationRecord
     has_many :supervised_projects, class_name: 'Project', foreign_key: 'supervisor_id'
 
     validates :name, :idNumber, presence: true
-    validates :email, presence: true , email: true
+    validates :email, presence: true
 
     validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
     
