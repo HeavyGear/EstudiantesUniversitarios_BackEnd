@@ -11,6 +11,8 @@
 #
 
 class Document < ApplicationRecord
+  mount_uploader :content, DocumentUploader
+
   belongs_to :uploadeable, polymorphic: true
 
   belongs_to :document_state

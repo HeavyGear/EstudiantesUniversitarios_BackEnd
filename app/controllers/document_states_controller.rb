@@ -3,7 +3,8 @@ class DocumentStatesController < ApplicationController
         document_states = DocumentState.all.paginate(page: params[:page], per_page: 5)
     
         respond_to do |format|
-document_states        end
+          format.json { render json: document_states, status:200 }
+      end
     end
       
     def create

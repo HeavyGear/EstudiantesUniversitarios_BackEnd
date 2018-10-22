@@ -14,6 +14,7 @@ class UserUniversity < ApplicationRecord
     belongs_to :user
     belongs_to :university
     belongs_to :major
+
     
     validates :user, :university, :major, presence: true
 end
