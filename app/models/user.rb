@@ -38,7 +38,7 @@ class User < ApplicationRecord
     validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
     
     validates :idNumber, presence: true, numericality: true
-    validates :role, presence: true
+    validates :role_id, presence: true
 end
 
 
