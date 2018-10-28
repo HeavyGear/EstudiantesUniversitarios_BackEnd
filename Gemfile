@@ -60,7 +60,7 @@ group :development, :test do
   gem 'sqlite3'
 
   # Use wkhtmltopdf to local
-  gem 'wkhtmltopdf-binary'
+  #gem 'wkhtmltopdf-binary'
 end
 
 group :development do
@@ -74,7 +74,7 @@ group :production do
   gem 'pg'
 
   # Use wkhtmltopdf for Heroku
-  gem 'wkhtmltopdf-heroku'
+  #gem 'wkhtmltopdf-heroku'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
