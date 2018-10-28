@@ -60,7 +60,7 @@ group :development, :test do
   gem 'sqlite3'
 
   # Use wkhtmltopdf to local
-  #gem 'wkhtmltopdf-binary'
+  gem 'wkhtmltopdf-binary'
 end
 
 group :development do
