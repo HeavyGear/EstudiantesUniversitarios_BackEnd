@@ -52,6 +52,7 @@ gem 'carrierwave', '~> 1.0'
 # Use WickedPDF to generate PDF
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-heroku'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
