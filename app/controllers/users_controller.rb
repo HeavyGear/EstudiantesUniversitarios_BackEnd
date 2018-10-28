@@ -28,7 +28,7 @@ class UsersController < ActionController::Base
     @user = User.find(params[:id])
   
     respond_to do |format|
-      format.json { render json: user, status:200 }
+      format.json { render json: @user, status:200 }
 
       format.pdf do
         render pdf: "Certificado",
