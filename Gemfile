@@ -74,7 +74,7 @@ group :production do
   gem 'pg'
 
   # Use wkhtmltopdf for Heroku
-  gem 'wkhtmltopdf-heroku'
+  gem 'wkhtmltopdf-binary'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
