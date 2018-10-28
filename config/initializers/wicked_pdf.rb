@@ -19,5 +19,5 @@ WickedPdf.config = {
   # (but can be overridden in `render :pdf` calls)
   # layout: 'pdf.html',
 
-  exe_path: '/usr/local/bin/wkhtmltopdf-amd64'#should be whatever your version is called
+  exe_path: Rails.env.production? ? Gem.bin_path('wkhtmltopdf-heroku') : nil
 }
