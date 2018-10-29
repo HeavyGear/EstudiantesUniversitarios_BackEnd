@@ -26,5 +26,5 @@ class Role < ApplicationRecord
         self.where(id: curr_id)
     end
     
-    validates :name, presence: true
+    validates :name, presence: true, length: { minimum: 3, maximum: 100 }
 end

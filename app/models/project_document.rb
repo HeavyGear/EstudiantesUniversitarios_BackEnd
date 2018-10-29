@@ -22,5 +22,8 @@ class ProjectDocument < ApplicationRecord
 
     belongs_to :project_document
 
-    validates :document_state_id, :project, presence: true
+    validates :document_state_id, presence: true
+    validates :project_id, presence: true, numericality: { only_integer: true }
+    validates :year, numericality: { minimum: 2010 }, numericality: { only_integer: true }
+    validates :period, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 3 }
 end
