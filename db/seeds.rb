@@ -69,7 +69,7 @@ end
 # Poblar la tabla User
 25.times do
   User.create(name: Faker::Name.name,
-  idNumber: rand(1..999999),
+  idnumber: rand(1..999999),
   email: Faker::Internet.email,
   beneficiary: Faker::Boolean.boolean,
   password: "123456",
