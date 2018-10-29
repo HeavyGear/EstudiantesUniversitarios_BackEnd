@@ -13,6 +13,18 @@
 #
 
 class UserProjectDocument < ApplicationRecord
+    # Muestra todas las asociaciones entre usuarios y documentos de proyecto
+    def self.get_user_project_documents
+        self.select('user_project_documents.user_id, user_project_documents.project_document_id, user_project_documents.revisionDate, user_project_documents.comment, user_project_documents.response')
+    end
+
+    # Muestra la asociacion entre usuarios y documentos solicitada
+    def self.get_user_project_documents(curr_id)
+        self.where(id: curr_id).select('user_project_documents.user_id, user_project_documents.project_document_id, user_project_documents.revisionDate, user_project_documents.comment, user_project_documents.response')
+    end
+
+    ##
+    
     belongs_to :user
     belongs_to :project_document
     

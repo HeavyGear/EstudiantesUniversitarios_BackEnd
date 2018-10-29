@@ -9,22 +9,19 @@
 #
 
 class Role < ApplicationRecord
-    has_many :users
-
     # Muestra todos los roles
     def self.get_roles
         self.select('roles.id, roles.name')
     end
 
-    # Muestra todos los usuarios de un rol
-    def self.get_users(curr_id)
-        self.where(id: curr_id).joins(:users).select('users.id, users.name, users.beneficiary')
+    # Muestra el rol solicitado
+    def self.get_role(curr_id)
+        self.where(id: curr_id).select('roles.id, roles.name')
     end
 
-    # Muestra el usuario solicitado
-    def self.get_user(curr_id)
-        self.where(id: curr_id)
-    end
+    ##
     
+    has_many :users
+
     validates :name, presence: true, length: { minimum: 3, maximum: 100 }
 end

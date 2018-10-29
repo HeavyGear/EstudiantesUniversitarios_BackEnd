@@ -1,6 +1,6 @@
 class UniversitiesController < ApplicationController
     def index
-        universities = University.all.paginate(page: params[:page], per_page: 5)
+        universities = University.get_universities().paginate(page: params[:page], per_page: 5)
     
         respond_to do |format|
           format.json { render json: universities, status:200 }
@@ -22,7 +22,7 @@ class UniversitiesController < ApplicationController
     end
       
     def show
-        university = University.find(params[:id])
+        university = University.get_university(params[:id])
       
         respond_to do |format|
           format.json { render json: university, status:200 }
@@ -30,7 +30,7 @@ class UniversitiesController < ApplicationController
     end
       
     def update
-        university = University.find(params[:id])
+        university = University.get_university(params[:id])
       
         if university.update(params_university)
           respond_to do |format|

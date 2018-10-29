@@ -1,6 +1,6 @@
 class PublicationsController < ApplicationController
     def index
-        publications = Publication.all.paginate(page: params[:page], per_page: 5)
+        publications = Publication.get_publications.paginate(page: params[:page], per_page: 5)
     
         respond_to do |format|
           format.json { render json: publications, status:200 }
@@ -22,7 +22,7 @@ class PublicationsController < ApplicationController
     end
       
     def show
-        publication = Publication.find(params[:id])
+        publication = Publication.get_publication(params[:id])
       
         respond_to do |format|
           format.json { render json: publication, status:200 }
@@ -30,7 +30,7 @@ class PublicationsController < ApplicationController
     end
       
     def update
-        publication = Publication.find(params[:id])
+        publication = Publication.get_publication(params[:id])
       
         if publication.update(params_publication)
           respond_to do |format|
@@ -42,7 +42,7 @@ class PublicationsController < ApplicationController
     end
 
     def destroy
-        publication = Publication.find(params[:id])
+        publication = Publication.get_publication(params[:id])
         publication.destroy
       
         respond_to do |format|
@@ -53,6 +53,6 @@ class PublicationsController < ApplicationController
     ##
 
     def params_publication
-        params.permit(:name, :description, :startDate, :endDate, :place, :latitude, :longitude)
+        params.permit(:name, :description, :startDate, :endDate, :place, :latitude, :longitude, :type_publication, :user_id, :parent_id)
     end
 end
