@@ -18,4 +18,6 @@ class Document < ApplicationRecord
   belongs_to :document_state
   
   validates :content, presence: true
+  validates :uploadeable_type, presence: true, length: { minimum: 3, maximum: 100 }
+  validates :uploadeable_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 end

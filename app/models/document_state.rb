@@ -10,5 +10,6 @@
 
 class DocumentState < ApplicationRecord
     has_many :project_documents
-    validates :name, presence: true
+
+    validates :name, presence: true, length: { minimum: 3, maximum: 100 }
 end

@@ -11,5 +11,5 @@
 class TypePublication < ApplicationRecord
     has_many :publications
 
-    validates :name, presence: true
+    validates :name, presence: true, length: { minimum: 3, maximum: 100 }
 end

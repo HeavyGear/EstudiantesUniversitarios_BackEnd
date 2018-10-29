@@ -13,6 +13,6 @@ class Major < ApplicationRecord
     has_many :users, through: :user_universities
     has_many :universities, through: :user_universities
 
-    validates :name, presence: true
+    validates :name, presence: true, length: { minimum: 3, maximum: 100 }
 
 end

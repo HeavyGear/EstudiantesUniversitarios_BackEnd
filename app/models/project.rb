@@ -20,5 +20,9 @@ class Project < ApplicationRecord
 
     belongs_to :project_state
 
-    validates :project_state, :name, :description, presence: true
+    validates :project_state, :name, :description, presence: true, length: { minimum: 3, maximum: 100 }
+    validates: :description, :description, presence: true, length: { minimum: 3, maximum: 200 }
+    validates: :user_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+    validates: :supervisor_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+    validates: project_state_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 end

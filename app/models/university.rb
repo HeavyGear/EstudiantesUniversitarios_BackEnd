@@ -17,5 +17,7 @@ class University < ApplicationRecord
 
     has_one :image, as: :imageable
 
-    validates :name, :city, :department, presence: true
+    validates :name, , presence: true, length: { minimum: 3, maximum: 100 }
+    validates  :city, , presence: true, length: { minimum: 3, maximum: 100 }
+    validates :department, , presence: true, length: { minimum: 3, maximum: 100 }
 end

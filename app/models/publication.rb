@@ -30,5 +30,11 @@ class Publication < ApplicationRecord
     belongs_to :parent, class_name: 'Publication'
     has_many :children, class_name: 'Publication', foreign_key: 'parent_id'
 
-    validates :name, :description, :place, :type_publication_id, :user_id, presence: true
+    validates :name, presence: true, length: { minimum: 3, maximum: 100 }
+    validates :description, presence: true, length: { minimum: 3, maximum: 200 }
+    validates :place, presence: true, length: { minimum: 3, maximum: 100 }
+    validates :type_publication_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+    validates :user_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+    validates :parent_id, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+    validates :children_id, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 end

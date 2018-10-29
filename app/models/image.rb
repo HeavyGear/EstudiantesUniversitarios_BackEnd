@@ -16,4 +16,6 @@ class Image < ApplicationRecord
   belongs_to :imageable, polymorphic: true
 
   validates :content, presence: true
+  validates :imageable_type, presence: true, length: { minimum: 3, maximum: 100 }
+  validates :imageable_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 end
