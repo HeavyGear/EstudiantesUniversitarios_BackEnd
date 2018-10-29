@@ -16,7 +16,7 @@ class Major < ApplicationRecord
 
     # Muestra la carrera solicitada
     def self.get_major(curr_id)
-        self.where(id: curr_id).select('majors.id, majors.name')
+        self.where(id: curr_id).select('majors.id, majors.name').first
     end
 
     ##

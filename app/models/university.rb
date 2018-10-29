@@ -18,7 +18,7 @@ class University < ApplicationRecord
 
     # Muestra la universidad solicitada
     def self.get_university(curr_id)
-        self.where(id: curr_id).select('universities.id, universities.name, universities.city, universities.department')
+        self.where(id: curr_id).select('universities.id, universities.name, universities.city, universities.department').first
     end
 
     ##

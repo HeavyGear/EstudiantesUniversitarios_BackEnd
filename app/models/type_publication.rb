@@ -16,7 +16,7 @@ class TypePublication < ApplicationRecord
 
     # Muestra el tipo de publicación solicitado
     def self.get_type_publication(curr_id)
-        self.where(id: curr_id).select('type_publications.id, type_publications.name')
+        self.where(id: curr_id).select('type_publications.id, type_publications.name').first
     end
 
     ##

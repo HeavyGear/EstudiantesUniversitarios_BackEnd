@@ -16,7 +16,7 @@ class Role < ApplicationRecord
 
     # Muestra el rol solicitado
     def self.get_role(curr_id)
-        self.where(id: curr_id).select('roles.id, roles.name')
+        self.where(id: curr_id).select('roles.id, roles.name').first
     end
 
     ##

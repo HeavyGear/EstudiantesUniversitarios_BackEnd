@@ -20,7 +20,7 @@ class ProjectDocument < ApplicationRecord
 
     # Muestra el documento de proyecto solicitado
     def self.get_project_document(curr_id)
-        self.where(id: curr_id).select('project_documents.id, project_documents.document_state_id, project_documents.project_id, project_documents.approved, project_documents.year, project_documents.period')
+        self.where(id: curr_id).select('project_documents.id, project_documents.document_state_id, project_documents.project_id, project_documents.approved, project_documents.year, project_documents.period').first
     end
 
     ##

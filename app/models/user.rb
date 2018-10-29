@@ -21,7 +21,7 @@ class User < ApplicationRecord
 
     # Muestra el usuario solicitado
     def self.get_user(curr_id)
-        self.where(id: curr_id).select('users.id, users.name, users.idNumber, users.email, users.beneficiary, users.password_digest, users.role_id')
+        self.where(id: curr_id).select('users.id, users.name, users.idNumber, users.email, users.beneficiary, users.password_digest, users.role_id').first
     end
 
     ##

@@ -18,7 +18,7 @@ class Image < ApplicationRecord
 
   # Muestra la imagen solicitada
   def self.get_image(curr_id)
-      self.where(id: curr_id).select('images.id, images.content, images.imageable_type, images.imageable_id')
+      self.where(id: curr_id).select('images.id, images.content, images.imageable_type, images.imageable_id').first
   end
 
   ##

@@ -20,7 +20,7 @@ class Project < ApplicationRecord
 
     # Muestra el proyecto solicitado
     def self.get_project(curr_id)
-        self.where(id: curr_id).select('projects.id, projects.name, projects.description, projects.user_id, projects.supervisor_id, projects.project_state_id')
+        self.where(id: curr_id).select('projects.id, projects.name, projects.description, projects.user_id, projects.supervisor_id, projects.project_state_id').first
     end
 
     ##

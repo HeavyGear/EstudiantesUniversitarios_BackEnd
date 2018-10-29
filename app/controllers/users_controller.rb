@@ -25,7 +25,7 @@ class UsersController < ActionController::Base
   end
   
   def show
-    user = User.get_user(params[:id])
+    @user = User.get_user(params[:id])
   
     respond_to do |format|
       format.json { render json: @user, status:200 }

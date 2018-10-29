@@ -16,7 +16,7 @@ class ProjectState < ApplicationRecord
 
     # Muestra el estado de proyecto solicitado
     def self.get_project_state(curr_id)
-        self.where(id: curr_id).select('project_states.id, project_states.name')
+        self.where(id: curr_id).select('project_states.id, project_states.name').first
     end
 
     ##

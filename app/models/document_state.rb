@@ -16,7 +16,7 @@ class DocumentState < ApplicationRecord
 
     # Muestra el estado de documento solicitado
     def self.get_document_state(curr_id)
-        self.where(id: curr_id).select('document_states.id, document_states.name')
+        self.where(id: curr_id).select('document_states.id, document_states.name').first
     end
 
     ##

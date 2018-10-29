@@ -26,7 +26,7 @@ class Publication < ApplicationRecord
 
     # Muestra la publicación solicitada
     def self.get_publication(curr_id)
-        self.where(id: curr_id).select('publications.id, publications.name, publications.description, publications.startDate, publications.endDate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id, publications.parent_id')
+        self.where(id: curr_id).select('publications.id, publications.name, publications.description, publications.startDate, publications.endDate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id, publications.parent_id').first
     end
 
     ##

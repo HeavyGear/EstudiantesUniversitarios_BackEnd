@@ -18,7 +18,7 @@ class Document < ApplicationRecord
 
   # Muestra el documento solicitado
   def self.get_document(curr_id)
-      self.where(id: curr_id).select('documents.id, documents.content, documents.uploadeable_type, documents.uploadeable_id')
+      self.where(id: curr_id).select('documents.id, documents.content, documents.uploadeable_type, documents.uploadeable_id').first
   end
 
   ##

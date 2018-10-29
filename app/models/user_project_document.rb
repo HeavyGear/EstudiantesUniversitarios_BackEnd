@@ -20,7 +20,7 @@ class UserProjectDocument < ApplicationRecord
 
     # Muestra la asociacion entre usuarios y documentos solicitada
     def self.get_user_project_documents(curr_id)
-        self.where(id: curr_id).select('user_project_documents.user_id, user_project_documents.project_document_id, user_project_documents.revisionDate, user_project_documents.comment, user_project_documents.response')
+        self.where(id: curr_id).select('user_project_documents.user_id, user_project_documents.project_document_id, user_project_documents.revisionDate, user_project_documents.comment, user_project_documents.response').first
     end
 
     ##
