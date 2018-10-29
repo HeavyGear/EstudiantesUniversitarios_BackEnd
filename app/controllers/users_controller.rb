@@ -32,7 +32,8 @@ class UsersController < ActionController::Base
 
       format.pdf do
         render pdf: "Certificado",
-        template: "users/certificate.html.erb"
+        template: "users/certificate.pdf.erb",
+        page_size: 'A4'
       end
     end
   end

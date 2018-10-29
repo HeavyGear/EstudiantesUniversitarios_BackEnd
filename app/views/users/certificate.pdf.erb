@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Certificado</title>
+        <meta charset="utf-8">
+    </head>
+    <body style="font-family: verdana;font-size:130%;">
+        <div align="center">
+            <img src="/home/david/Documentos/SoftwareII/Proyecto/UniPastasAldana/public/images/Pastas.jpg" alt="Logo">
+        </div>
+
+        <div align="justify">
+            <br/>
+            La honorable Corporación del Cabildo Indígena del Pueblo de los Pastos en uso de sus facultades
+            legales que le confiere el Derecho Mayor, la Ley de Origen, la Ley Natural, el Convenio 169 de la
+            OIT, la Ley 89 de 1989, la Constitución Política de 1991, la Declaración de las Naciones Unidas
+            sobre los derechos de los Pueblos Indígenas, la Ley 21 de 1991, el Decreto 543 de 2011 que adopta
+            la Política Pública para los Pueblos Indígenas en Bogotá D.C, el Decreto 612 de 2015 "Por el cuál
+            se crea el Consejo Consultivo y de Concertación para los Pueblos Indígenas en Bogotá D.C" y demás
+            normas que defienden los derechos de los pueblos indígenas de Colombia. <br/> <br/> <br/>
+        </div>
+
+        <div align="center">
+            <b>CERTIFICA</b> <br/> <br/> <br/>
+        </div>
+
+        <div align="justify">
+            Que <%= @user.name %>, identificado con documento de identidad número <%= @user.idNumber %>
+            ha cumplido su trabajo social de manera satisfactoria. <br/> <br/> <br/>
+        </div>
+    
+        <div align="justify">
+            Dado el <%= Time.now.day %>/<%= Time.now.month %>/<%= Time.now.year %>, dirigido a quién corresponda.
+            <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> 
+            <br/>
+        </div>
+        
+        <div align="left">
+            _____________________________ <br/>
+            Pepito Perez <br/>
+            Gobernador <br/>
+            Cabildo Indígena de los Pastos D.C
+        </div>
+
+    </body>
+</html>
