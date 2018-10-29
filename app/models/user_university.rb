@@ -16,5 +16,7 @@ class UserUniversity < ApplicationRecord
     belongs_to :major
 
     
-    validates :user, :university, :major, presence: true
+    validates :user_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+    validates :university_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+    validates :major_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 end

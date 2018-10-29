@@ -32,13 +32,14 @@ class User < ApplicationRecord
     has_one :project, class_name: 'Project', foreign_key: 'user_id'
     has_many :supervised_projects, class_name: 'Project', foreign_key: 'supervisor_id'
 
-    validates :name, :idNumber, presence: true
-    validates :email, presence: true
+    validates :name, presence: true, length: { minimum: 3, maximum: 100 }
+    validates :idNumber, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+    validates :role_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 
+    validates :password, presence: true, length: { minimum: 6 }
+
+    validates :email, presence: true, length: { minimum: 6 }
     validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-    
-    validates :idNumber, presence: true, numericality: true
-    validates :role_id, presence: true
 end
 
 
