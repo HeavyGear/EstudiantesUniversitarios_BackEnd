@@ -4,7 +4,7 @@
 #
 #  id              :integer          not null, primary key
 #  name            :string
-#  idNumber        :integer
+#  idnumber        :integer
 #  email           :string
 #  beneficiary     :boolean
 #  password_digest :string

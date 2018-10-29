@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(version: 20181014065000) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.integer  "idNumber"
+    t.integer  "idnumber"
     t.string   "email"
     t.boolean  "beneficiary"
     t.string   "password_digest"
