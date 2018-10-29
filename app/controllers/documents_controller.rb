@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
     def index
-        documents = Document.all.paginate(page: params[:page], per_page: 5)
+        documents = Document.get_documents.paginate(page: params[:page], per_page: 5)
     
         respond_to do |format|
           format.json { render json: documents, status:200 }
@@ -22,7 +22,7 @@ class DocumentsController < ApplicationController
     end
       
     def show
-        document = Document.find(params[:id])
+        document = Document.get_document(params[:id])
       
         respond_to do |format|
           format.json { render json: document, status:200 }
@@ -30,7 +30,7 @@ class DocumentsController < ApplicationController
     end
       
     def update
-        document = Document.find(params[:id])
+        document = Document.get_document(params[:id])
       
         if document.update(params_document)
           respond_to do |format|
@@ -42,7 +42,7 @@ class DocumentsController < ApplicationController
     end
 
     def destroy
-        document = Document.find(params[:id])
+        document = Document.get_document(params[:id])
         document.destroy
       
         respond_to do |format|

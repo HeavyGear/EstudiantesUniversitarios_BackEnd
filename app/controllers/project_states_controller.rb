@@ -1,6 +1,6 @@
 class ProjectStatesController < ApplicationController
     def index
-        project_states = ProjectState.all.paginate(page: params[:page], per_page: 5)
+        project_states = ProjectState.get_project_states.paginate(page: params[:page], per_page: 5)
     
         respond_to do |format|
           format.json { render json: project_states, status:200 }
@@ -22,7 +22,7 @@ class ProjectStatesController < ApplicationController
     end
       
     def show
-        project_state = ProjectState.find(params[:id])
+        project_state = ProjectState.get_project_state(params[:id])
       
         respond_to do |format|
           format.json { render json: project_state, status:200 }
@@ -30,7 +30,7 @@ class ProjectStatesController < ApplicationController
     end
       
     def update
-        project_state = ProjectState.find(params[:id])
+        project_state = ProjectState.get_project_state(params[:id])
       
         if project_state.update(params_project_state)
           respond_to do |format|
@@ -42,7 +42,7 @@ class ProjectStatesController < ApplicationController
     end
 
     def destroy
-        project_state = ProjectState.find(params[:id])
+        project_state = ProjectState.get_project_state(params[:id])
         project_state.destroy
       
         respond_to do |format|

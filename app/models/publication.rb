@@ -19,6 +19,18 @@
 #
 
 class Publication < ApplicationRecord
+    # Muestra todas las publicaciones
+    def self.get_publications
+        self.select('publications.id, publications.name, publications.description, publications.startDate, publications.endDate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id, publications.parent_id')
+    end
+
+    # Muestra la publicación solicitada
+    def self.get_publication(curr_id)
+        self.where(id: curr_id).select('publications.id, publications.name, publications.description, publications.startDate, publications.endDate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id, publications.parent_id')
+    end
+
+    ##
+    
     has_many :images, as: :imageable
 
     has_many :documents, as: :uploadeable
@@ -36,5 +48,4 @@ class Publication < ApplicationRecord
     validates :type_publication_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
     validates :user_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
     validates :parent_id, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
-    validates :children_id, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 end

@@ -11,6 +11,18 @@
 #
 
 class Document < ApplicationRecord
+  # Muestra todos los documentos
+  def self.get_documents
+      self.select('documents.id, documents.content, documents.uploadeable_type, documents.uploadeable_id')
+  end
+
+  # Muestra el documento solicitado
+  def self.get_document(curr_id)
+      self.where(id: curr_id).select('documents.id, documents.content, documents.uploadeable_type, documents.uploadeable_id')
+  end
+
+  ##
+  
   mount_uploader :content, DocumentUploader
 
   belongs_to :uploadeable, polymorphic: true

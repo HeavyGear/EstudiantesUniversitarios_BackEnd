@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
     def index
-        images = Image.all.paginate(page: params[:page], per_page: 5)
+        images = Image.get_images.paginate(page: params[:page], per_page: 5)
     
         respond_to do |format|
           format.json { render json: images, status:200 }
@@ -22,7 +22,7 @@ class ImagesController < ApplicationController
     end
       
     def show
-        image = Image.find(params[:id])
+        image = Image.get_image(params[:id])
       
         respond_to do |format|
           format.json { render json: image, status:200 }
@@ -30,7 +30,7 @@ class ImagesController < ApplicationController
     end
       
     def update
-        image = Image.find(params[:id])
+        image = Image.get_image(params[:id])
       
         if image.update(params_image)
           respond_to do |format|
@@ -42,7 +42,7 @@ class ImagesController < ApplicationController
     end
 
     def destroy
-        image = Image.find(params[:id])
+        image = Image.get_image(params[:id])
         image.destroy
       
         respond_to do |format|

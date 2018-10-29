@@ -22,7 +22,7 @@ class RolesController < ApplicationController
     end
       
     def show
-        role = Role.get_users(params[:id])
+        role = Role.get_role(params[:id])
       
         respond_to do |format|
           format.json { render json: role, status:200 }
@@ -30,7 +30,7 @@ class RolesController < ApplicationController
     end
       
     def update
-        role = Role.get_user(params[:id])
+        role = Role.get_role(params[:id])
       
         if role.update(params_role)
           respond_to do |format|
@@ -42,7 +42,7 @@ class RolesController < ApplicationController
     end
 
     def destroy
-        role = Role.get_user(params[:id])
+        role = Role.get_role(params[:id])
         role.destroy(params[:id])
       
         respond_to do |format|

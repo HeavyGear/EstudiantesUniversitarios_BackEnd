@@ -1,6 +1,6 @@
 class MajorsController < ApplicationController
     def index
-        majors = Major.all.paginate(page: params[:page], per_page: 5)
+        majors = Major.get_majors.paginate(page: params[:page], per_page: 5)
     
         respond_to do |format|
           format.json { render json: majors, status:200 }
@@ -22,7 +22,7 @@ class MajorsController < ApplicationController
     end
       
     def show
-        major = Major.find(params[:id])
+        major = Major.get_major(params[:id])
       
         respond_to do |format|
           format.json { render json: major, status:200 }
@@ -30,7 +30,7 @@ class MajorsController < ApplicationController
     end
       
     def update
-        major = Major.find(params[:id])
+        major = Major.get_major(params[:id])
       
         if major.update(params_major)
           respond_to do |format|
@@ -42,7 +42,7 @@ class MajorsController < ApplicationController
     end
 
     def destroy
-        major = Major.find(params[:id])
+        major = Major.get_major(params[:id])
         major.destroy
       
         respond_to do |format|

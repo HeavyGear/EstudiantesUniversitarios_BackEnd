@@ -3,7 +3,7 @@ class UsersController < ActionController::Base
   before_action :authenticate_user, only: [:update, :destroy]
 
   def index
-    users = User.all.paginate(page: params[:page], per_page: 5)
+    users = User.get_users.paginate(page: params[:page], per_page: 5)
 
     respond_to do |format|
       format.json { render json: users, status:200 }
@@ -25,7 +25,7 @@ class UsersController < ActionController::Base
   end
   
   def show
-    @user = User.find(params[:id])
+    user = User.get_user(params[:id])
   
     respond_to do |format|
       format.json { render json: user, status:200 }
@@ -38,7 +38,7 @@ class UsersController < ActionController::Base
   end
   
   def update
-    user = User.find(params[:id])
+    user = User.get_user(params[:id])
   
     if user.update(params_user)
       respond_to do |format|
@@ -50,7 +50,7 @@ class UsersController < ActionController::Base
   end
   
   def destroy
-    user = User.find(params[:id])
+    user = User.get_user(params[:id])
     user.destroy
   
     respond_to do |format|

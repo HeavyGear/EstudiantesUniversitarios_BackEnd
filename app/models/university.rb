@@ -11,6 +11,18 @@
 #
 
 class University < ApplicationRecord
+    # Muestra todas las universidades
+    def self.get_universities
+        self.select('universities.id, universities.name, universities.city, universities.department')
+    end
+
+    # Muestra la universidad solicitada
+    def self.get_university(curr_id)
+        self.where(id: curr_id).select('universities.id, universities.name, universities.city, universities.department')
+    end
+
+    ##
+
     has_many :user_universities
     has_many :users, through: :user_universities
     has_many :majors, through: :user_universities

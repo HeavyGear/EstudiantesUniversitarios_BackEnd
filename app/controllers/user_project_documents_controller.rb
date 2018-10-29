@@ -1,6 +1,6 @@
 class UserProjectDocumentsController < ApplicationController
     def index
-        user_project_documents = UserProjectDocument.all.paginate(page: params[:page], per_page: 5)
+        user_project_documents = UserProjectDocument.get_user_project_documents.paginate(page: params[:page], per_page: 5)
     
         respond_to do |format|
           format.json { render json: user_project_documents, status:200 }
@@ -22,7 +22,7 @@ class UserProjectDocumentsController < ApplicationController
     end
       
     def show
-        user_project_document = UserProjectDocument.find(params[:id])
+        user_project_document = UserProjectDocument.get_user_project_document(params[:id])
       
         respond_to do |format|
           format.json { render json: user_project_document, status:200 }
@@ -30,7 +30,7 @@ class UserProjectDocumentsController < ApplicationController
     end
       
     def update
-        user_project_document = UserProjectDocument.find(params[:id])
+        user_project_document = UserProjectDocument.get_user_project_document(params[:id])
       
         if user_project_document.update(params_user_project_document)
           respond_to do |format|
@@ -42,7 +42,7 @@ class UserProjectDocumentsController < ApplicationController
     end
 
     def destroy
-        user_project_document = user_project_document.find(params[:id])
+        user_project_document = user_project_document.get_user_project_document(params[:id])
         user_project_document.destroy
       
         respond_to do |format|

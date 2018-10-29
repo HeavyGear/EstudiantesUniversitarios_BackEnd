@@ -1,6 +1,6 @@
 class TypePublicationsController < ApplicationController
     def index
-        type_publications = TypePublication.all.paginate(page: params[:page], per_page: 5)
+        type_publications = TypePublication.get_type_publications.paginate(page: params[:page], per_page: 5)
     
         respond_to do |format|
           format.json { render json: type_publications, status:200 }
@@ -22,7 +22,7 @@ class TypePublicationsController < ApplicationController
     end
       
     def show
-        type_publication = TypePublication.find(params[:id])
+        type_publication = TypePublication.get_type_publication(params[:id])
       
         respond_to do |format|
           format.json { render json: type_publication, status:200 }
@@ -30,7 +30,7 @@ class TypePublicationsController < ApplicationController
     end
       
     def update
-        type_publication = TypePublication.find(params[:id])
+        type_publication = TypePublication.get_type_publication(params[:id])
       
         if type_publication.update(params_type_publications)
           respond_to do |format|
@@ -42,7 +42,7 @@ class TypePublicationsController < ApplicationController
     end
 
     def destroy
-        type_publication = TypePublication.find(params[:id])
+        type_publication = TypePublication.get_type_publication(params[:id])
         type_publication.destroy
       
         respond_to do |format|

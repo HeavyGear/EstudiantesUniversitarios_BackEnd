@@ -14,6 +14,18 @@
 #
 
 class User < ApplicationRecord
+    # Muestra todos los usuarios
+    def self.get_users
+        self.select('users.id, users.name, users.idNumber, users.email, users.beneficiary, users.password_digest, users.role_id')
+    end
+
+    # Muestra el usuario solicitado
+    def self.get_user(curr_id)
+        self.where(id: curr_id).select('users.id, users.name, users.idNumber, users.email, users.beneficiary, users.password_digest, users.role_id')
+    end
+
+    ##
+    
     has_secure_password
 
     has_many :images, as: :imageable

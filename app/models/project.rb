@@ -13,6 +13,18 @@
 #
 
 class Project < ApplicationRecord
+    # Muestra todos los proyectos
+    def self.get_projects
+        self.select('projects.id, projects.name, projects.description, projects.user_id, projects.supervisor_id, projects.project_state_id')
+    end
+
+    # Muestra el proyecto solicitado
+    def self.get_project(curr_id)
+        self.where(id: curr_id).select('projects.id, projects.name, projects.description, projects.user_id, projects.supervisor_id, projects.project_state_id')
+    end
+
+    ##
+    
     belongs_to :user, class_name: 'User'
     belongs_to :supervisor, class_name: 'User'
 

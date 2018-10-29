@@ -11,6 +11,18 @@
 #
 
 class Image < ApplicationRecord
+  # Muestra todas las imágenes
+  def self.get_images
+    self.select('images.id, images.content, images.imageable_type, images.imageable_id')
+  end
+
+  # Muestra la imagen solicitada
+  def self.get_image(curr_id)
+      self.where(id: curr_id).select('images.id, images.content, images.imageable_type, images.imageable_id')
+  end
+
+  ##
+
   mount_uploader :content, ImageUploader
 
   belongs_to :imageable, polymorphic: true
