@@ -67,18 +67,18 @@ end
 end
 
 # Poblar la tabla User
-User.create(name: "David Herrera",
+User.create(name: 'David Herrera',
   idnumber: rand(102456),
-  email: "dacherreragu@unal.edu.co",
+  email: 'dacherreragu@unal.edu.co',
   beneficiary: Faker::Boolean.boolean,
-  password: "123456",
+  password: '123456',
   role_id: rand(1..4))
 24.times do
   User.create(name: Faker::Name.name,
   idnumber: rand(1..999999),
   email: Faker::Internet.email,
   beneficiary: Faker::Boolean.boolean,
-  password: "123456",
+  password: '123456',
   role_id: rand(1..4))
 end
 
