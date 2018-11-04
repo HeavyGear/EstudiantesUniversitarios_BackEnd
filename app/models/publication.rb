@@ -35,7 +35,7 @@ class Publication < ApplicationRecord
 
     # Envía el correo que notifica que se ha creado una publicación
     def send_new_publication_mail
-        PublicationMailer.new_publication(self).deliver
+        PublicationMailer.new_publication(self).deliver_later
     end
 
     ##
