@@ -1,5 +1,4 @@
 class PublicationMailer < ApplicationMailer
-
     def new_publication(publication)
         @publication = publication
 

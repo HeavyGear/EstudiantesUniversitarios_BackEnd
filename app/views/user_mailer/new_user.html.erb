@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body style="font-family: verdana;font-size:100%;">
+        <div align="center">
+            <%= image_tag(attachments['Pastas.jpg'].url, size: "200x200") %>
+            <h1> ¡Has creado un nuevo usuario en nuestra aplicación! </h1>
+        </div>
+
+        <div align="center">
+            <h2> <%= @user.name %> </h2>
+
+            <p>
+                <h3>
+                    Correo electrónico: <%= @user.email %>
+                </h3>
+                <h3>
+                    Contraseña: <%= @user.password %>
+                </h3>
+                <h3>
+                    <%= link_to "Leer más", user_url(@user) %>
+                </h3>
+            </p>
+            </div>
+    </body>
+</html>

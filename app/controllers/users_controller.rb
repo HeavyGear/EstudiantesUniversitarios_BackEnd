@@ -14,6 +14,8 @@ class UsersController < ActionController::Base
     user = User.new(params_user)
   
     if user.save
+      User.send_new_user_mail(user)
+
       respond_to do |format|
         format.json { render json: user, status:201 }
       end

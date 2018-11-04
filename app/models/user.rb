@@ -24,6 +24,11 @@ class User < ApplicationRecord
         self.where(id: curr_id).select('users.id, users.name, users.idnumber, users.email, users.beneficiary, users.password_digest, users.role_id').first
     end
 
+    # Envía el correo que notifica que se ha creado un usuario
+    def self.send_new_user_mail(curr_user)
+        UserMailer.new_user(curr_user).deliver
+    end
+
     ##
     
     has_secure_password
