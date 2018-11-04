@@ -3,7 +3,7 @@ class PublicationMailer < ApplicationMailer
     def new_publication(publication)
         @publication = publication
 
-        user = User.get_user(@publication.try.user_id)
+        user = User.get_user(publication.user_id)
 
         attachments.inline["Pastas.jpg"] = File.read("#{Rails.root}/public/images/Pastas.jpg")
 

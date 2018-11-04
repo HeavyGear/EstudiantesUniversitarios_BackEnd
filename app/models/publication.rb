@@ -19,7 +19,7 @@
 #
 
 class Publication < ApplicationRecord
-    after_create :send_new_publication_mail
+    #after_save :send_new_publication_mail
 
     ##
 
@@ -34,8 +34,8 @@ class Publication < ApplicationRecord
     end
 
     # Envía el correo que notifica que se ha creado una publicación
-    def send_new_publication_mail
-        PublicationMailer.new_publication(self).deliver_later
+    def self.send_new_publication_mail(curr_publication)
+        PublicationMailer.new_publication(curr_publication).deliver
     end
 
     ##
