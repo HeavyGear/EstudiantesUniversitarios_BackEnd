@@ -58,6 +58,9 @@ gem 'sass-rails', '~> 5.0'
 # Use httparty
 gem 'httparty', '~> 0.13.7'
 
+# Use Mail
+gem 'mail', '~> 2.7'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -67,6 +70,12 @@ group :development, :test do
 
   # Use wkhtmltopdf to local
   gem 'wkhtmltopdf-binary'
+
+  # Use letter-opener
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
+
+  # Use mailcatcher
+  gem 'mailcatcher'
 end
 
 group :development do

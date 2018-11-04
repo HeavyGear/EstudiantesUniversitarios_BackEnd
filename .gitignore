@@ -22,3 +22,6 @@
 
 # Ignore vendor
 /vendor
+
+# Ignore username and password for mailer
+/config/initializers/app_env_vars.rb

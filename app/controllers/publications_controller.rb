@@ -8,15 +8,15 @@ class PublicationsController < ApplicationController
     end
       
     def create
-        publication = Publication.new(params_publication)
+        @publication = Publication.new(params_publication)
       
-        if publication.save
+        if @publication.save
           respond_to do |format|
-            format.json { render json: publication, status:201 }
+            format.json { render json: @publication, status:201 }
           end
         else
           respond_to do |format|
-            format.json { render json: publication.errors, status: :unprocessable_entity }
+            format.json { render json: @publication.errors, status: :unprocessable_entity }
           end
         end
     end
@@ -53,6 +53,6 @@ class PublicationsController < ApplicationController
     ##
 
     def params_publication
-        params.permit(:name, :description, :startDate, :endDate, :place, :latitude, :longitude, :type_publication, :user_id, :parent_id)
+        params.permit(:name, :description, :startDate, :endDate, :place, :latitude, :longitude, :type_publication_id, :user_id, :parent_id)
     end
 end
