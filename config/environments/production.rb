@@ -77,7 +77,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # For mailing
-  config.action_mailer.default_url_options = { host: "unipastas-back.herokuapp.com" }
+  config.action_mailer.default_url_options = { host: "unipastas-frontend.herokuapp.com" }
   config.action_mailer.asset_host = 'unipastas-back.herokuapp.com'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
