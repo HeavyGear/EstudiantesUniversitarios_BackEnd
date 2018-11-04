@@ -10,12 +10,12 @@
         </div>
 
         <div align="center">
-            <h2> <%= @publication.name.try %> </h2>
+            <h2> <%= @publication.try.name %> </h2>
 
             <p>
                 <h3>
-                    <%= truncate(@publication.description.try, lenght:45) %>
-                    <%= link_to "Leer más", publication_url(@publication) %>
+                    <%= truncate(@publication.try.description, lenght:45) %>
+                    <%= link_to "Leer más", publication_url(@publication.try) %>
                 </h3>
             </p>
             </div>
