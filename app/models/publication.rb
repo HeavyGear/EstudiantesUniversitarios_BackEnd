@@ -19,6 +19,10 @@
 #
 
 class Publication < ApplicationRecord
+    after_create :send_new_publication_mail
+
+    ##
+
     # Muestra todas las publicaciones
     def self.get_publications
         self.select('publications.id, publications.name, publications.description, publications.startDate, publications.endDate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id, publications.parent_id')
@@ -27,6 +31,11 @@ class Publication < ApplicationRecord
     # Muestra la publicación solicitada
     def self.get_publication(curr_id)
         self.where(id: curr_id).select('publications.id, publications.name, publications.description, publications.startDate, publications.endDate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id, publications.parent_id').first
+    end
+
+    # Envía el correo que notifica que se ha creado una publicación
+    def send_new_publication_mail
+        PublicationMailer.new_publication(self).deliver
     end
 
     ##
@@ -47,5 +56,5 @@ class Publication < ApplicationRecord
     validates :place, presence: true, length: { minimum: 3, maximum: 100 }
     validates :type_publication_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
     validates :user_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
-    validates :parent_id, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+    validates :parent_id, numericality: { only_integer: true, greater_than_or_equal_to: 1 }, presence: false
 end
