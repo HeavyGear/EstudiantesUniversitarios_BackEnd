@@ -1,7 +1,7 @@
 Knock.setup do |config|
 
   # Configuración del token
-  config.token_lifetime = 1.week # El tiempo de vida dle token será de 1 semana
+  config.token_lifetime = 1.week # El tiempo de vida del token será de 1 semana
   config.token_signature_algorithm = 'HS256' # SHA-256
   config.token_secret_signature_key = -> {Rails.application.secrets.secret_key_base} # Clave autogenerada
 
