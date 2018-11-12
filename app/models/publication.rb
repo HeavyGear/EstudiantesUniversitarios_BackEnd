@@ -12,8 +12,6 @@
 #  longitude           :float
 #  user_id             :integer
 #  type_publication_id :integer
-#  parent_id           :integer
-#  children_id         :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #
@@ -48,13 +46,9 @@ class Publication < ApplicationRecord
 
     belongs_to :type_publication
 
-    belongs_to :parent, class_name: 'Publication'
-    has_many :children, class_name: 'Publication', foreign_key: 'parent_id'
-
     validates :name, presence: true, length: { minimum: 3, maximum: 100 }
     validates :description, presence: true, length: { minimum: 3, maximum: 200 }
     validates :place, presence: true, length: { minimum: 3, maximum: 100 }
     validates :type_publication_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
     validates :user_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
-    validates :parent_id, numericality: { only_integer: true, greater_than_or_equal_to: 1 }, presence: false
 end

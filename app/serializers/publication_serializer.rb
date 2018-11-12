@@ -12,12 +12,10 @@
 #  longitude           :float
 #  user_id             :integer
 #  type_publication_id :integer
-#  parent_id           :integer
-#  children_id         :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #
 
 class PublicationSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :startDate, :endDate, :place, :latitude, :longitude, :user_id, :type_publication_id, :parent_id
+  attributes :id, :name, :description, :startDate, :endDate, :place, :latitude, :longitude, :user_id, :type_publication_id
 end

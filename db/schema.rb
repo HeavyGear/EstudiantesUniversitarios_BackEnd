@@ -83,12 +83,8 @@ ActiveRecord::Schema.define(version: 20181014065000) do
     t.float    "longitude"
     t.integer  "user_id"
     t.integer  "type_publication_id"
-    t.integer  "parent_id"
-    t.integer  "children_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.index ["children_id"], name: "index_publications_on_children_id"
-    t.index ["parent_id"], name: "index_publications_on_parent_id"
     t.index ["type_publication_id"], name: "index_publications_on_type_publication_id"
     t.index ["user_id"], name: "index_publications_on_user_id"
   end

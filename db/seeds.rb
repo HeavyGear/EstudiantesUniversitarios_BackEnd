@@ -7,10 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Poblar la tabla Role
-Role.create(name: 'Autoridad tradicional')
-Role.create(name: 'Líder')
-Role.create(name: 'Beneficiario')
-Role.create(name: 'Aspirante')
+Role.create(name: 'Administrador')
+Role.create(name: 'Usuario')
+Role.create(name: 'Invitado')
 
 # Poblar la tabla University
 20.times do
@@ -62,24 +61,35 @@ end
   latitude: 4.35,
   longitude: 97.28,
   type_publication_id: rand(1..3),
-  user_id: rand(1..25),
-  parent_id: rand(1..10))
+  user_id: rand(1..25))
 end
 
 # Poblar la tabla User
 User.create(name: 'David Herrera',
-  idnumber: rand(102456),
+  idnumber: rand(1..999999),
   email: 'dacherreragu@unal.edu.co',
   beneficiary: Faker::Boolean.boolean,
   password: '123456',
-  role_id: rand(1..4))
-24.times do
+  role_id: 1) # Administrador
+User.create(name: 'Jhon Mueses',
+  idnumber: rand(1..999999),
+  email: 'jjmuesesq@unal.edu.co',
+  beneficiary: Faker::Boolean.boolean,
+  password: '123456',
+  role_id: 2) # Usuario
+User.create(name: 'Gonzalo Baez',
+  idnumber: rand(1..999999),
+  email: 'gebaezs@unal.edu.co',
+  beneficiary: Faker::Boolean.boolean,
+  password: '123456',
+  role_id: 3) # Invitado
+22.times do
   User.create(name: Faker::Name.name,
   idnumber: rand(1..999999),
   email: Faker::Internet.email,
   beneficiary: Faker::Boolean.boolean,
   password: '123456',
-  role_id: rand(1..4))
+  role_id: rand(1..3))
 end
 
 # Poblar la tabla Image

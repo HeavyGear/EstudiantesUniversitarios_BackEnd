@@ -12,8 +12,6 @@
 #  longitude           :float
 #  user_id             :integer
 #  type_publication_id :integer
-#  parent_id           :integer
-#  children_id         :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #
