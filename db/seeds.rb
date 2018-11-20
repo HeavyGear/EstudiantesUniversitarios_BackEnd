@@ -63,6 +63,12 @@ end
   user_id: rand(1..25))
 end
 
+# POblar la tabla Comment
+50.times do
+  Comment.create(body: Faker::FamilyGuy.quote,
+  publication_id: rand(1..10))
+end
+
 # Poblar la tabla User
 User.create(name: 'David Herrera',
   idnumber: rand(1..999999),
