@@ -9,7 +9,6 @@
 # Poblar la tabla Role
 Role.create(name: 'Administrador')
 Role.create(name: 'Usuario')
-Role.create(name: 'Invitado')
 
 # Poblar la tabla University
 20.times do
@@ -36,7 +35,7 @@ ProjectState.create(name: 'Terminado')
 # Poblar la tabla TypePublication
 TypePublication.create(name: 'Publicación informativa')
 TypePublication.create(name: 'Evento')
-TypePublication.create(name: 'Comentario')
+TypePublication.create(name: 'Asesoría')
 
 #Poblar la tabla ProjectDocument
 15.times do
@@ -82,14 +81,14 @@ User.create(name: 'Gonzalo Baez',
   email: 'gebaezs@unal.edu.co',
   beneficiary: Faker::Boolean.boolean,
   password: '123456',
-  role_id: 3) # Invitado
+  role_id: 2) # Invitado
 22.times do
   User.create(name: Faker::Name.name,
   idnumber: rand(1..999999),
   email: Faker::Internet.email,
   beneficiary: Faker::Boolean.boolean,
   password: '123456',
-  role_id: rand(1..3))
+  role_id: rand(1..2))
 end
 
 # Poblar la tabla Image
