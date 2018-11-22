@@ -4,7 +4,6 @@ class CreatePublications < ActiveRecord::Migration[5.0]
       t.string :name
       t.text :description
       t.datetime :startDate
-      t.datetime :endDate
       t.string :place
       t.float :latitude
       t.float :longitude

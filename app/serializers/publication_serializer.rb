@@ -17,5 +17,5 @@
 #
 
 class PublicationSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :startDate, :endDate, :place, :latitude, :longitude, :user_id, :type_publication_id
+  attributes :id, :name, :description, :startDate, :place, :latitude, :longitude, :user_id, :type_publication_id
 end

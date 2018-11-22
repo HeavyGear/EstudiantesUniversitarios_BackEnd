@@ -1,9 +1,9 @@
 class UniversitiesController < ApplicationController
     # Filtro que verifica si el usuario está autenticado
-    before_action :authenticate_user, only: [:show, :update, :destroy]
+    before_action :authenticate_user, only: [:update, :destroy]
 
     # Filtro que verifica que los únicos con acceso a la información de las universidades son los administradores
-    before_action :verify_role, only: [:show, :update, :destroy]
+    before_action :verify_role_admin, only: [:update, :destroy]
 
     ##
 

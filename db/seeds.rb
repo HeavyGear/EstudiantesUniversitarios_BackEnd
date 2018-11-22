@@ -33,9 +33,9 @@ ProjectState.create(name: 'En curso')
 ProjectState.create(name: 'Terminado')
 
 # Poblar la tabla TypePublication
-TypePublication.create(name: 'Publicación informativa')
 TypePublication.create(name: 'Evento')
 TypePublication.create(name: 'Asesoría')
+TypePublication.create(name: 'Publicación')
 
 #Poblar la tabla ProjectDocument
 15.times do
