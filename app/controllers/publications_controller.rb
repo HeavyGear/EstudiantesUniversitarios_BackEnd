@@ -6,7 +6,7 @@ class PublicationsController < ApplicationController
   before_action :verify_role_admin, only: [:destroy]
 
   # Filtro que verifica que los únicos con acceso a la información de las universidades son los usuarios
-  before_action :verify_role_user, only: [:destroy_self]
+  before_action :verify_role_user, only: [:destroy_self] 
 
   ##
 
