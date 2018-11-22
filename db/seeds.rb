@@ -81,7 +81,7 @@ User.create(name: 'Gonzalo Baez',
   email: 'gebaezs@unal.edu.co',
   beneficiary: Faker::Boolean.boolean,
   password: '123456',
-  role_id: 2) # Invitado
+  role_id: 2) # Usuario
 22.times do
   User.create(name: Faker::Name.name,
   idnumber: rand(1..999999),
