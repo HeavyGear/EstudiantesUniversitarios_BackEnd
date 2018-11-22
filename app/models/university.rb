@@ -16,6 +16,11 @@ class University < ApplicationRecord
         self.select('universities.id, universities.name, universities.city, universities.department')
     end
 
+    # Muestra el nombre de todas las universidades
+    def self.get_universities_names
+        self.select('universities.id, universities.name')
+    end
+
     # Muestra la universidad solicitada
     def self.get_university(curr_id)
         self.where(id: curr_id).select('universities.id, universities.name, universities.city, universities.department').first
