@@ -6,7 +6,6 @@
 #  name                :string
 #  description         :text
 #  startDate           :datetime
-#  endDate             :datetime
 #  place               :string
 #  latitude            :float
 #  longitude           :float
@@ -17,5 +16,5 @@
 #
 
 class PublicationSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :startDate, :place, :latitude, :longitude, :user_id, :type_publication_id
+  attributes :id, :name, :description, :startdate, :place, :latitude, :longitude, :user_id, :type_publication_id
 end

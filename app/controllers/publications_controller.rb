@@ -99,6 +99,6 @@ class PublicationsController < ApplicationController
     ##
 
     def params_publication
-        params.permit(:name, :description, :startDate, :place, :latitude, :longitude, :type_publication_id, :user_id)
+        params.permit(:name, :description, :startdate, :place, :latitude, :longitude, :type_publication_id, :user_id)
     end
 end

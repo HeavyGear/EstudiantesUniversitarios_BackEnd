@@ -3,7 +3,7 @@ class CreatePublications < ActiveRecord::Migration[5.0]
     create_table :publications do |t|
       t.string :name
       t.text :description
-      t.datetime :startDate
+      t.datetime :startdate
       t.string :place
       t.float :latitude
       t.float :longitude

@@ -6,7 +6,6 @@
 #  name                :string
 #  description         :text
 #  startDate           :datetime
-#  endDate             :datetime
 #  place               :string
 #  latitude            :float
 #  longitude           :float
@@ -23,32 +22,32 @@ class Publication < ApplicationRecord
 
     # Muestra todas las publicaciones (sin distinguir tipo)
     def self.get_all_publications
-        self.select('publications.id, publications.name, publications.description, publications.startDate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id')
+        self.select('publications.id, publications.name, publications.description, publications.startdate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id')
     end
 
     # Muestra todos los elementos de tipo evento    
     def self.get_events
-        self.where(type_publication_id: 1).select('publications.id, publications.name, publications.description, publications.startDate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id')
+        self.where(type_publication_id: 1).select('publications.id, publications.name, publications.description, publications.startdate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id')
     end
 
     # Muestra todos los elementos de tipo asesoría
     def self.get_consultancies
-        self.where(type_publication_id: 2).select('publications.id, publications.name, publications.description, publications.startDate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id')
+        self.where(type_publication_id: 2).select('publications.id, publications.name, publications.description, publications.startdate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id')
     end
 
     # Muestra todos los elementos de tipo publicación
     def self.get_publications
-        self.where(type_publication_id: 3).select('publications.id, publications.name, publications.description, publications.startDate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id')
+        self.where(type_publication_id: 3).select('publications.id, publications.name, publications.description, publications.startdate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id')
     end
 
     # Muestra la publicación solicitada
     def self.get_publication(curr_id)
-        self.where(id: curr_id).select('publications.id, publications.name, publications.description, publications.startDate, publications.endDate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id').first
+        self.where(id: curr_id).select('publications.id, publications.name, publications.description, publications.startdate publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id').first
     end
 
     # Muestra la publicación solicitada si fue creada por el usuario con el id asociado
     def self.get_publication_self(curr_id, current_user_id)
-        self.where(id: curr_id, user_id: current_user_id).select('publications.id, publications.name, publications.description, publications.startDate, publications.endDate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id').first
+        self.where(id: curr_id, user_id: current_user_id).select('publications.id, publications.name, publications.description, publications.startdate, publications.endDate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id').first
     end
 
     # Envía el correo que notifica que se ha creado una publicación

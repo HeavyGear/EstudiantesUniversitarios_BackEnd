@@ -6,7 +6,6 @@
 #  name                :string
 #  description         :text
 #  startDate           :datetime
-#  endDate             :datetime
 #  place               :string
 #  latitude            :float
 #  longitude           :float
