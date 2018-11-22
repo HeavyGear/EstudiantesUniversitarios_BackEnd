@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 20181120162508) do
     t.string   "name"
     t.text     "description"
     t.datetime "startDate"
-    t.datetime "endDate"
     t.string   "place"
     t.float    "latitude"
     t.float    "longitude"
