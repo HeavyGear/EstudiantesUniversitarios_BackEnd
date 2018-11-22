@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20181120162508) do
   create_table "publications", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "startDate"
+    t.datetime "startdate"
     t.string   "place"
     t.float    "latitude"
     t.float    "longitude"

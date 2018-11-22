@@ -54,7 +54,7 @@ end
 10.times do
   Publication.create(name: Faker::Book.title,
   description: Faker::LeagueOfLegends.quote,
-  startDate: Time.now,
+  startdate: Time.now,
   place: Faker::LeagueOfLegends.location,
   latitude: 4.35,
   longitude: 97.28,
