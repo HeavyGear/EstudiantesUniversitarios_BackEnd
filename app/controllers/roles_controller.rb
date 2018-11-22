@@ -1,18 +1,9 @@
 class RolesController < ApplicationController
-    # Filtro que verifica si el cliente está autorizado para usar el método auth
+    # Filtro que verifica si el usuario está autenticado
     before_action :authenticate_user, only: [:index, :show]
 
     # Filtro que verifica que los únicos con acceso a la información de los roles son los administradores
     before_action :verify_role, only: [:index, :show]
-
-    ##
-
-    # Filtro que verifica que los únicos con acceso a la información de los roles son los administradores
-    def verify_role
-      if current_user.role_id != 1
-        render 'Unauthorized', status: 401
-      end
-    end
 
     ##
 

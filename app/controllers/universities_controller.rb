@@ -1,6 +1,22 @@
 class UniversitiesController < ApplicationController
+    # Filtro que verifica si el usuario está autenticado
+    before_action :authenticate_user, only: [:show, :update, :destroy]
+
+    # Filtro que verifica que los únicos con acceso a la información de las universidades son los administradores
+    before_action :verify_role, only: [:show, :update, :destroy]
+
+    ##
+
     def index
-        universities = University.get_universities().paginate(page: params[:page], per_page: 5)
+        universities = University.get_universities().paginate(page: params[:page], per_page: 6)
+    
+        respond_to do |format|
+          format.json { render json: universities, status:200 }
+        end
+    end
+
+    def index_names
+      universities = University.get_universities_names().paginate(page: params[:page], per_page: 6)
     
         respond_to do |format|
           format.json { render json: universities, status:200 }
