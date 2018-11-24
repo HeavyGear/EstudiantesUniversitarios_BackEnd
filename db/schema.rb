@@ -72,12 +72,10 @@ ActiveRecord::Schema.define(version: 20181120162508) do
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
-    t.integer  "supervisor_id"
     t.integer  "project_state_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["project_state_id"], name: "index_projects_on_project_state_id"
-    t.index ["supervisor_id"], name: "index_projects_on_supervisor_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

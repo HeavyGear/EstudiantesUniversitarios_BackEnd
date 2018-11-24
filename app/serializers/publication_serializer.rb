@@ -5,7 +5,7 @@
 #  id                  :integer          not null, primary key
 #  name                :string
 #  description         :text
-#  startDate           :datetime
+#  startdate           :datetime
 #  place               :string
 #  latitude            :float
 #  longitude           :float

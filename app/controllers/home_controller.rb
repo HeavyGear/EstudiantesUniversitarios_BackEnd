@@ -9,6 +9,8 @@ class HomeController < ApplicationController
 
     # Indica el nombre del usuario con el que actualmente se ha iniciado sesión
     def auth
-        render json: { status: 200, msg: "Actualmente has iniciado sesión como #{current_user.name}" }
+        respond_to do |format|
+            format.json { render json: current_user.id, status:200 }
+        end
     end
 end

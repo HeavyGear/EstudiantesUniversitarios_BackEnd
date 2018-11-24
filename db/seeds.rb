@@ -47,7 +47,7 @@ end
 20.times do
   Project.create(name: Faker::LeagueOfLegends.champion,
     description: Faker::Job.title,
-    user_id: rand(1..25), supervisor_id: rand(1..25), project_state_id: rand(1..3))
+    user_id: rand(1..25), project_state_id: rand(1..3))
 end
 
 # Poblar la tabla Publication
