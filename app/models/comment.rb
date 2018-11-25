@@ -28,4 +28,5 @@ class Comment < ApplicationRecord
     ##
 
     validates :body, presence: true, length: { minimum: 3, maximum: 250 }
+    validates :publication_id, presence: true, numericality: { only_integer: true }
 end

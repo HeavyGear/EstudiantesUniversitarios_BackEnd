@@ -38,14 +38,25 @@ TypePublication.create(name: 'Publicación')
 end
 
 #Poblar la tabla Project
-20.times do
+Project.create(name: "Proyecto de pruebas",
+    description: "Probando los proyectos",
+    user_id: 1)
+19.times do
   Project.create(name: Faker::LeagueOfLegends.champion,
     description: Faker::Job.title,
     user_id: rand(1..25))
 end
 
 # Poblar la tabla Publication
-10.times do
+Publication.create(name: "Publicación de pruebas",
+  description: "Probando las publicaciones",
+  startdate: Time.now,
+  place: "Bogotá",
+  latitude: 4.35,
+  longitude: 97.28,
+  type_publication_id: 1,
+  user_id: 1)
+9.times do
   Publication.create(name: Faker::Book.title,
   description: Faker::LeagueOfLegends.quote,
   startdate: Time.now,

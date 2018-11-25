@@ -13,13 +13,18 @@
 
 class ProjectDocument < ApplicationRecord
     # Muestra todos los documentos de un proyecto
-    def self.get_project_documents
-        self.select('project_documents.id, project_documents.document_state_id, project_documents.project_id, project_documents.approved, project_documents.year, project_documents.period')
+    def self.get_project_documents(parent_id)
+        self.where(project_id: parent_id).select('project_documents.id, project_documents.document_state_id, project_documents.project_id, project_documents.year, project_documents.period, project_documents.created_at, project_documents.updated_at')
+    end
+
+    # Muestra todos los documentos proyectos
+    def self.get_all_project_documents()
+        self.select('project_documents.id, project_documents.document_state_id, project_documents.project_id, project_documents.year, project_documents.period, project_documents.created_at, project_documents.updated_at')
     end
 
     # Muestra el documento de proyecto solicitado
-    def self.get_project_document(curr_id)
-        self.where(id: curr_id).select('project_documents.id, project_documents.document_state_id, project_documents.project_id, project_documents.approved, project_documents.year, project_documents.period').first
+    def self.get_project_document(parent_id, project_document_id)
+        self.where(project_id: parent_id, id: project_document_id).select('project_documents.id, project_documents.document_state_id, project_documents.project_id, project_documents.year, project_documents.period, project_documents.created_at, project_documents.updated_at').first
     end
 
     ##

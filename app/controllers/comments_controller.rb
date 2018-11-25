@@ -8,8 +8,7 @@ class CommentsController < ApplicationController
     ##
 
     def index
-        publication = Publication.get_publication(:publication_id)
-        comments = Comment.get_comments(params[:publication_id]).paginate(page: params[:page], per_page: 5)
+        comments = Comment.get_comments(params[:publication_id]).paginate(page: params[:page], per_page: 3)
     
         respond_to do |format|
             format.json { render json: comments, status:200 }
@@ -17,7 +16,6 @@ class CommentsController < ApplicationController
     end
 
     def create
-        publication = Publication.get_publication(params[:id])
         comment = Comment.new(params_comment)
       
         if comment.save
@@ -32,7 +30,6 @@ class CommentsController < ApplicationController
     end
       
     def show
-        publication = Publication.get_publication(params[:id])
         comment = Comment.get_comment(params[:publication_id], params[:id])
 
         respond_to do |format|
@@ -41,7 +38,6 @@ class CommentsController < ApplicationController
     end
 
     def show_truncate
-        publication = Publication.get_publication(params[:id])
         comment = Comment.get_comment(params[:publication_id], params[:id])
         comment.body = comment.body.truncate(30)
 
@@ -51,7 +47,6 @@ class CommentsController < ApplicationController
     end
 
     def update_self
-        publication = Publication.get_publication(params[:id])
         comment = Comment.get_comment(params[:publication_id], params[:id])
       
         if current_user.id == publication.user_id
@@ -68,7 +63,6 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-        publication = Publication.get_publication(params[:id])
         comment = Comment.get_comment(params[:publication_id], params[:id])
       
         comment.destroy
@@ -79,7 +73,6 @@ class CommentsController < ApplicationController
     end
 
     def destroy_self
-        publication = Publication.get_publication(params[:id])
         comment = Comment.get_comment(params[:publication_id], params[:id])
       
         if current_user.id == publication.user_id

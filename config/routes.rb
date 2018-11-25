@@ -45,6 +45,28 @@
 #                            PATCH  /users/:id(.:format)                                          users#update
 #                            PUT    /users/:id(.:format)                                          users#update
 #                            DELETE /users/:id(.:format)                                          users#destroy
+#                            GET    /projects_self/:id(.:format)                                  projects#show_self
+#                            PATCH  /projects_self/:id(.:format)                                  projects#update_self
+#                            PUT    /projects_self/:id(.:format)                                  projects#update_self
+#                            DELETE /projects_self/:id(.:format)                                  projects#destroy_self
+#                   projects GET    /projects(.:format)                                           projects#index
+#                            POST   /projects(.:format)                                           projects#create
+#                    project GET    /projects/:id(.:format)                                       projects#show
+#                            PATCH  /projects/:id(.:format)                                       projects#update
+#                            PUT    /projects/:id(.:format)                                       projects#update
+#                            DELETE /projects/:id(.:format)                                       projects#destroy
+#                            GET    /projects/:project_id/project_documents(.:format)             project_documents#index
+#                            GET    /projects/:project_id/project_documents_one(.:format)         project_documents#index_project
+#                            GET    /projects/:project_id/project_documents/:id(.:format)         project_documents#show
+#                            POST   /projects/:project_id/project_documents(.:format)             project_documents#create
+#                            PATCH  /projects/:project_id/project_documents/:id(.:format)         pproject_documents#update
+#                            PUT    /projects/:project_id/project_documents/:id(.:format)         project_documents#update
+#                            DELETE /projects/:project_id/project_documents/:id(.:format)         project_documents#destroy
+#                            GET    /projects/:project_id/project_documents_self(.:format)        project_documents#index_self
+#                            GET    /projects/:project_id/project_documents_self/:id(.:format)    project_documents#show_self
+#                            PATCH  /projects/:project_id/project_documents_self/:id(.:format)    pproject_documents#update_self
+#                            PUT    /projects/:project_id/project_documents_self/:id(.:format)    project_documents#update_self
+#                            DELETE /projects/:project_id/project_documents_self/:id(.:format)    project_documents#destroy_self
 
 Rails.application.routes.draw do
   # Crear el token
@@ -98,4 +120,18 @@ Rails.application.routes.draw do
   put 'projects_self/:id' => 'projects#update_self'
   delete 'projects_self/:id' => 'projects#destroy_self'
   resources :projects
+
+  #Project Documents
+  get 'projects/:project_id/project_documents' => 'project_documents#index'
+  get 'projects/:project_id/project_documents_one' => 'project_documents#index_project'
+  get 'projects/:project_id/project_documents/:id' => 'project_documents#show'
+  post 'projects/:project_id/project_documents' => 'project_documents#create'
+  patch 'projects/:project_id/project_documents/:id' => 'pproject_documents#update'
+  put 'projects/:project_id/project_documents/:id' => 'project_documents#update'
+  delete 'projects/:project_id/project_documents/:id' => 'project_documents#destroy'
+  get 'projects/:project_id/project_documents_self' => 'project_documents#index_self'
+  get 'projects/:project_id/project_documents_self/:id' => 'project_documents#show_self'
+  patch 'projects/:project_id/project_documents_self/:id' => 'pproject_documents#update_self'
+  put 'projects/:project_id/project_documents_self/:id' => 'project_documents#update_self'
+  delete 'projects/:project_id/project_documents_self/:id' => 'project_documents#destroy_self'
 end
