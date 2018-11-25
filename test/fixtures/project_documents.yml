@@ -5,7 +5,6 @@
 #  id                :integer          not null, primary key
 #  document_state_id :integer
 #  project_id        :integer
-#  approved          :boolean
 #  year              :integer
 #  period            :integer
 #  created_at        :datetime         not null
