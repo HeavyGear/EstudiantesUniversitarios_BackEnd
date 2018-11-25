@@ -78,7 +78,7 @@ Rails.application.routes.draw do
 
   # Roles
   get 'roles' => 'roles#index'
-  get 'roles/:id' => 'roles#show'
+  get 'roles/:id' => 'roles#show' 
 
   # Document States
   get 'document_states' => 'roles#index'
