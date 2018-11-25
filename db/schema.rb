@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 20181120162508) do
   create_table "project_documents", force: :cascade do |t|
     t.integer  "document_state_id"
     t.integer  "project_id"
-    t.boolean  "approved"
     t.integer  "year"
     t.integer  "period"
     t.datetime "created_at",        null: false
@@ -62,20 +61,12 @@ ActiveRecord::Schema.define(version: 20181120162508) do
     t.index ["project_id"], name: "index_project_documents_on_project_id"
   end
 
-  create_table "project_states", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
-    t.integer  "project_state_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["project_state_id"], name: "index_projects_on_project_state_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

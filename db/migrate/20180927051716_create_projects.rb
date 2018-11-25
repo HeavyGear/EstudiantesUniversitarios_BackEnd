@@ -5,8 +5,6 @@ class CreateProjects < ActiveRecord::Migration[5.0]
       t.text :description
 
       t.references :user
-     
-      t.belongs_to :project_state, index: true
 
       t.timestamps
     end

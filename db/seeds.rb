@@ -22,15 +22,9 @@ end
 end
 
 # Poblar la tabla DocumentState
-DocumentState.create(name: 'Sin revisar')
-DocumentState.create(name: 'En proceso de revisión')
+DocumentState.create(name: 'Pendiente')
 DocumentState.create(name: 'Rechazado')
 DocumentState.create(name: 'Aprobado')
-
-# Poblar la tabla ProjectState
-ProjectState.create(name: 'Sin iniciar')
-ProjectState.create(name: 'En curso')
-ProjectState.create(name: 'Terminado')
 
 # Poblar la tabla TypePublication
 TypePublication.create(name: 'Evento')
@@ -39,7 +33,7 @@ TypePublication.create(name: 'Publicación')
 
 #Poblar la tabla ProjectDocument
 15.times do
-  ProjectDocument.create(document_state_id: rand(1..3), project_id: rand(1..20), approved: Faker::Boolean.boolean, 
+  ProjectDocument.create(document_state_id: rand(1..3), project_id: rand(1..20), 
     year: rand(1..2018), period: rand(1..2))
 end
 
@@ -47,7 +41,7 @@ end
 20.times do
   Project.create(name: Faker::LeagueOfLegends.champion,
     description: Faker::Job.title,
-    user_id: rand(1..25), project_state_id: rand(1..3))
+    user_id: rand(1..25))
 end
 
 # Poblar la tabla Publication

@@ -14,12 +14,12 @@
 class Project < ApplicationRecord
     # Muestra todos los proyectos
     def self.get_projects
-        self.select('projects.id, projects.name, projects.description, projects.user_id, projects.project_state_id')
+        self.select('projects.id, projects.name, projects.description, projects.user_id')
     end
 
     # Muestra el proyecto solicitado
     def self.get_project(curr_id)
-        self.where(id: curr_id).select('projects.id, projects.name, projects.description, projects.user_id, projects.project_state_id').first
+        self.where(id: curr_id).select('projects.id, projects.name, projects.description, projects.user_id').first
     end
 
     ##
@@ -28,10 +28,6 @@ class Project < ApplicationRecord
 
     has_many :project_documents
 
-    belongs_to :project_state
-
-    validates :project_state, :name, :description, presence: true, length: { minimum: 3, maximum: 100 }
     validates :description, :description, presence: true, length: { minimum: 3, maximum: 200 }
     validates :user_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
-    validates :project_state_id, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 end
