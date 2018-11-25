@@ -114,18 +114,6 @@ ActiveRecord::Schema.define(version: 20181120162508) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_project_documents", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "project_document_id"
-    t.datetime "revisionDate"
-    t.text     "comment"
-    t.text     "response"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.index ["project_document_id"], name: "index_user_project_documents_on_project_document_id"
-    t.index ["user_id"], name: "index_user_project_documents_on_user_id"
-  end
-
   create_table "user_universities", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "university_id"

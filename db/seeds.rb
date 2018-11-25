@@ -138,10 +138,3 @@ end
 25.times do
   UserUniversity.create(user_id: rand(1..25), university_id: rand(1..20), major_id: rand(1..20))
 end
-
-# Poblar la tabla UserProjectDocument
-25.times do
-  UserProjectDocument.create(user_id: rand(1..25), project_document_id: rand(1..15), 
-  revisionDate: DateTime.now, comment: Faker::FamousLastWords.last_words,
-  response: Faker::LeagueOfLegends.quote)
-end
