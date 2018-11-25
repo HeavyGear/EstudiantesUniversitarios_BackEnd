@@ -37,12 +37,12 @@ class Publication < ApplicationRecord
 
     # Muestra todos los elementos de tipo publicación
     def self.get_publications
-        self.where(type_publication_id: 3).select('publications.id, publications.name, publications.description, publications.startdate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id')
+        self.where(type_publication_id: 3).select('publications.id')
     end
 
     # Muestra la publicación solicitada
     def self.get_publication(curr_id)
-        self.where(id: curr_id).select('publications.id, publications.name, publications.description, publications.startdate publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id').first
+        self.where(id: curr_id).select('publications.id, publications.name, publications.description, publications.startdate, publications.place, publications.latitude, publications.longitude, publications.user_id, publications.type_publication_id').first
     end
 
     # Muestra la publicación solicitada si fue creada por el usuario con el id asociado

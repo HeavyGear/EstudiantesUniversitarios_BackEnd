@@ -10,6 +10,19 @@
 #
 
 class Comment < ApplicationRecord
+    # Muestra todos los comentarios asociados a una publicación
+    def self.get_comments(parent_id)
+        self.where(publication_id: parent_id).select('comments.id, comments.body, comments.publication_id')
+    end
+
+    # Muestra el comentario solicitado que esté asociado a una publicación
+    def self.get_comment(parent_id, comment_id)
+        self.where(publication_id: parent_id, id: comment_id).select('comments.id, comments.body, comments.publication_id').first
+    end
+
+    ##
+
+
     belongs_to :publication
 
     ##

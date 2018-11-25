@@ -6,7 +6,6 @@
 #  name             :string
 #  description      :text
 #  user_id          :integer
-#  supervisor_id    :integer
 #  project_state_id :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null

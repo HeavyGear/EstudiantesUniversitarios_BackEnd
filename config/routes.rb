@@ -61,7 +61,17 @@ Rails.application.routes.draw do
   delete 'publications_self/:id' => 'publications#destroy_self'
   resources :publications
 
-  # Usersdestroy
+  # Comments
+  get 'publications/:publication_id/comments' => 'comments#index'
+  get 'publications/:publication_id/comments/:id' => 'comments#show'
+  get 'publications/:publication_id/comments_truncate/:id' => 'comments#show_truncate'
+  post 'publications/:publication_id/comments' => 'comments#create'
+  patch 'publications/:publication_id/comments_self/:id' => 'comments#update_self'
+  put 'publications/:publication_id/comments_self/:id' => 'comments#update_self'
+  delete 'publications/:publication_id/comments_self/:id' => 'comments#destroy_self'
+  delete 'publications/:publication_id/comments/:id' => 'comments#destroy'
+
+  # Users
   get 'users_self' => 'users#show_self'
   patch 'users_self' => 'users#update_self'
   put 'users_self' => 'users#update_self'
