@@ -14,6 +14,6 @@
 #
 
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :idnumber, :email, :password_digest, :beneficiary, :role_id
+  attributes :id, :name, :idnumber, :email, :password_digest, :role_id
 
 end

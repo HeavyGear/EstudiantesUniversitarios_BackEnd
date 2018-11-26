@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.integer :idnumber
       t.string :email
-      t.boolean :beneficiary
       t.string :password_digest # Almacena la contraseña, la cuál fue previamente cifrada
 
       t.belongs_to :role, index: true

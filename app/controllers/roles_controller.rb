@@ -2,9 +2,6 @@ class RolesController < ApplicationController
     # Filtro que verifica si el usuario está autenticado
     before_action :authenticate_user
 
-    # Filtro que verifica que los únicos con acceso a la información de los roles son los administradores
-    before_action :verify_role_admin
-
     ##
 
     def index

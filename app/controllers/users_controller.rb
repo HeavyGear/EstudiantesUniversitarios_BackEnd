@@ -98,6 +98,6 @@ class UsersController < ActionController::Base
   ##
   
   def params_user
-    params.permit(:name, :idnumber, :email, :beneficiary, :role_id, :password)
+    params.permit(:name, :idnumber, :email, :role_id, :password)
   end
 end

@@ -77,26 +77,22 @@ end
 User.create(name: 'David Herrera',
   idnumber: rand(1..999999),
   email: 'dacherreragu@unal.edu.co',
-  beneficiary: Faker::Boolean.boolean,
   password: '123456',
   role_id: 1) # Administrador
 User.create(name: 'Jhon Mueses',
   idnumber: rand(1..999999),
   email: 'jjmuesesq@unal.edu.co',
-  beneficiary: Faker::Boolean.boolean,
   password: '123456',
   role_id: 2) # Usuario
 User.create(name: 'Gonzalo Baez',
   idnumber: rand(1..999999),
   email: 'gebaezs@unal.edu.co',
-  beneficiary: Faker::Boolean.boolean,
   password: '123456',
   role_id: 2) # Usuario
 22.times do
   User.create(name: Faker::Name.name,
   idnumber: rand(1..999999),
   email: Faker::Internet.email,
-  beneficiary: Faker::Boolean.boolean,
   password: '123456',
   role_id: rand(1..2))
 end

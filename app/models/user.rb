@@ -44,7 +44,6 @@ class User < ApplicationRecord
     has_many :publications
 
     has_one :project, class_name: 'Project', foreign_key: 'user_id'
-    has_many :supervised_projects, class_name: 'Project', foreign_key: 'supervisor_id'
 
     validates :name, presence: true, length: { minimum: 3, maximum: 100 }
     validates :idnumber, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
