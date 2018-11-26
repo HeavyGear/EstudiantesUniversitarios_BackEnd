@@ -16,12 +16,12 @@
 class User < ApplicationRecord
     # Muestra todos los usuarios
     def self.get_users
-        self.select('users.id, users.name, users.idnumber, users.email, users.beneficiary, users.password_digest, users.role_id')
+        self.select('users.id, users.name, users.idnumber, users.email, users.password_digest, users.role_id')
     end
 
     # Muestra el usuario solicitado
     def self.get_user(curr_id)
-        self.where(id: curr_id).select('users.id, users.name, users.idnumber, users.email, users.beneficiary, users.password_digest, users.role_id').first
+        self.where(id: curr_id).select('users.id, users.name, users.idnumber, users.email, users.password_digest, users.role_id').first
     end
 
     # Envía el correo que notifica que se ha creado un usuario
