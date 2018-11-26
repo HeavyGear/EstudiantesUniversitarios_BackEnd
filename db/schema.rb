@@ -120,7 +120,6 @@ ActiveRecord::Schema.define(version: 20181120162508) do
     t.string   "name"
     t.integer  "idnumber"
     t.string   "email"
-    t.boolean  "beneficiary"
     t.string   "password_digest"
     t.integer  "role_id"
     t.datetime "created_at",      null: false
