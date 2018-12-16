@@ -10,5 +10,5 @@
 #
 
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :body, :publication_id
+  attributes :id, :body, :username, :publication_id
 end
