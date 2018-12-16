@@ -122,7 +122,7 @@ Rails.application.routes.draw do
   resources :projects
 
   #Project Documents
-  get 'projects/:project_id/project_documents' => 'project_documents#index'
+  get 'project_documents' => 'project_documents#index'
   get 'projects/:project_id/project_documents_one' => 'project_documents#index_project'
   get 'projects/:project_id/project_documents/:id' => 'project_documents#show'
   post 'projects/:project_id/project_documents' => 'project_documents#create'
