@@ -89,6 +89,7 @@ Rails.application.routes.draw do
   resources :universities
 
   # Publications
+  post 'publications_type_id/:numbertype' => 'publications#create_by_type_id'
   get 'publications_events' => 'publications#index_events'
   get 'publications_consultancies' => 'publications#index_consultancies'
   get 'publications_publications' => 'publications#index_publications'

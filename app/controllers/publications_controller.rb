@@ -57,6 +57,24 @@ class PublicationsController < ApplicationController
           end
         end
     end
+
+    def create_by_type_id
+      publication = Publication.new(params_publication)
+
+      publication.type_publication_id = params[:numbertype]
+      
+        if publication.save
+          Publication.send_new_publication_mail(publication)
+
+          respond_to do |format|
+            format.json { render json: publication, status:201 }
+          end
+        else
+          respond_to do |format|
+            format.json { render json: publication.errors, status: :unprocessable_entity }
+          end
+      end
+  end
       
     def show
         publication = Publication.get_publication(params[:id])
