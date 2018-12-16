@@ -70,6 +70,7 @@ end
 # POblar la tabla Comment
 50.times do
   Comment.create(body: Faker::FamilyGuy.quote,
+  username: Faker::FamilyGuy.character,
   publication_id: rand(1..10))
 end
 
