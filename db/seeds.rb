@@ -48,10 +48,19 @@ Project.create(name: "Proyecto de pruebas",
 end
 
 # Poblar la tabla Publication
+  # Función para una fecha en un rango
+  def rand_in_range(from, to)
+    rand * (to - from) + from
+  end
+
+  # Función para una fecha entre una inicial y y la actual
+  def rand_time(from, to=Time.now)
+    Time.at(rand_in_range(from.to_f, to.to_f))
+  end
+
 Publication.create(name: "Publicación de pruebas",
   description: "Probando las publicaciones",
-  startdate: Time.now,
-  place: "Bogotá",
+  startdate: rand_time(60.days.ago),
   latitude: 4.35,
   longitude: 97.28,
   type_publication_id: 1,
@@ -59,7 +68,7 @@ Publication.create(name: "Publicación de pruebas",
 9.times do
   Publication.create(name: Faker::Book.title,
   description: Faker::LeagueOfLegends.quote,
-  startdate: Time.now,
+  startdate: rand_time(60.days.ago),
   place: Faker::LeagueOfLegends.location,
   latitude: 4.35,
   longitude: 97.28,
@@ -67,7 +76,7 @@ Publication.create(name: "Publicación de pruebas",
   user_id: rand(1..25))
 end
 
-# POblar la tabla Comment
+# Poblar la tabla Comment
 50.times do
   Comment.create(body: Faker::FamilyGuy.quote,
   publication_id: rand(1..10))
